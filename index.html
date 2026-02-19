@@ -5,346 +5,453 @@
 	<title>Peter Suechting -- Personal Website</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	<script src="https://kit.fontawesome.com/f14a7ce53f.js" crossorigin="anonymous"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+		const CONFIG = {
+			personalInfo: {
+				name: "Peter Suechting",
+				title: "Ph.D. Candidate, Environmental Science, Studies & Policy",
+				emails: [
+					"psuechti@uoregon.edu",
+					"psuechting@gmail.com"
+				],
+				socialLinks: [
+					{ platform: "linkedin", url: "https://www.linkedin.com/in/peter-suechting-05a738a5" },
+					{ platform: "github", url: "https://github.com/psuechting" }
+				],
+				lead: "energy transitions; climate policy (& implementation); social movements",
+				aboutMe: "Researcher, data wrangler, & analyst specializing in informational systems design, development, & implementation for mission-focused organizations in the climate space. Experienced manager & thought leader in energy, climate, infrastructure, & industrial policy. Committed to delivering results with exceptional communication, collaboration, humility, and humor. Passionate about environmental issues, media, culture, & political economy."
+			},
+			workHistory: [
+				{
+					employer: "Community Voters Project",
+					employerUrl: "https://www.cfpir.org/community-voters-project",
+					title: "Canvass Office Director",
+					dates: "Apr 2016",
+					location: "Pueblo, CO",
+					description: "Community Voters Project is helping to increase civic engagement among underserved and underrepresented communities, focusing primarily on African Americans, Latinos, and in some locations, young people, through non-partner voter registration and GOTV campaigns."
+				},
+				{
+					employer: "NextGen Climate NH",
+					employerUrl: "https://www.nextgenclimate.org",
+					title: "State Operations Director",
+					dates: "Aug 2016",
+					location: "Manchester, NH",
+					description: "NextGen Climate acts politically to prevent climate disaster and promote prosperity for every American."
+				},
+				{
+					employer: "Corporate Accountability",
+					employerUrl: "https://www.corporateaccountability.org",
+					title: "Data & Analysis Manager",
+					dates: "Feb 2017",
+					location: "Boston, MA",
+					description: "Corporate Accountability wages strategic campaigns that compel transnational corporations, and the governments that do their bidding, to stop destroying our health, human rights, democracy, and planet."
+				},
+				{
+					employer: "UO Political Science & Environmental Studies",
+					employerUrl: "https://socialsciences.uoregon.edu/envs",
+					title: "Ph.D. Candidate",
+					dates: "Sept 2019",
+					location: "Eugene, OR",
+					description: "Founded in 1976, the Environmental Studies program laid the early foundation for the UO's strong track record in environmental research and teaching; now, with 26 core faculty and more than 100 participating faculty from 30 campus departments and programs, it sets the standard in interdisciplinary dialogue and collaboration."
+				}
+			],
+			education: [
+				{
+					degree: "B.A., Environmental Studies",
+					institution: "Amherst College",
+					location: "Amherst, MA",
+					year: "2015",
+					expected: false
+				},
+				{
+					degree: "M.S., Political Science",
+					institution: "University of Oregon",
+					location: "Eugene, OR",
+					year: "2022",
+					expected: false
+				},
+				{
+					degree: "Ph.D. Candidate, Environmental Studies, Science, & Policy",
+					institution: "University of Oregon",
+					location: "Eugene, OR",
+					year: "25/26",
+					expected: true
+				}
+			],
+			skills: [
+				{
+					years: "+ 9 years",
+					title: "Social scientific research design",
+					description: "Literature review, contextualization & synthesis; concept mapping; hypothesis testing; data collection; quantitative & qualitative methodologies; Nested analysis/multi-methodology"
+				},
+				{
+					years: "+ 7 years",
+					title: "Econometric techniques & statistical programming",
+					description: "R/RStudio/Markdown & Latex; Experiments; Causal Inference; Machine Learning; Data Visualization"
+				},
+				{
+					years: "+ 5 years",
+					title: "CRM design, management",
+					description: "AirTable; Salesforce; Salsa; ActionNetwork; Hustle; Bespoke projects"
+				},
+				{
+					years: "+ 5 years",
+					title: "Full-stack software development",
+					description: "HTML; CSS; JS/EJS; Node; Git; Bash"
+				}
+			],
+			researchInterests: [
+				{
+					topic: "Energy transitions",
+					details: "Environmental history; Labor history; History of capitalism; Science & technology studies (STS); Sociotechnical regimes; Petro-states; Carbon majors; State-Capital-Energy nexus; Critical development studies"
+				},
+				{
+					topic: "Climate policy",
+					details: "Industrial & regulatory policy; U.S. electricity grid reform & permitting reform; U.S.-China relations; BRICS+/non-aligned countries; Climate regime complex (UNFCCC); Earth system governance in the Anthropocene"
+				},
+				{
+					topic: "Social movements",
+					details: "Environmental grievance; Transnational climate justice; Networks; Social acceptability; Framing effects; NIMBY/ YIMBY; Rural land-use, transmission & pipeline politics"
+				}
+			],
+			publications: [
+				{
+					year: "2022",
+					title: "Co-authored chapter: Suechting, P., & Pettenger, M. (2022). International environmental regimes: Formation, effectiveness, trends and challenges.",
+					venue: "In P. G. Harris (Ed.), Routledge handbook of global environmental politics (Second ed.). Routledge.",
+					url: "https://www.taylorfrancis.com/chapters/edit/10.4324/9781003008873-12/international-environmental-regimes-peter-suechting-mary-pettenger?context=ubx&refId=87cc156b-887f-4eea-b77d-f8dcac4d19b9"
+				}
+			],
+			awards: [
+				{
+					year: "AY '19/'20",
+					title: "Lokey Science Award",
+					organization: "University of Oregon, Division of Graduate Studies",
+					url: "https://graduatestudies.uoregon.edu/funding/awards/lokey-graduate-science-awards",
+					description: "Made possible by a generous donation of Mr. Lorry I. Lokey, the Lokey Graduate Science Awards aim to help doctoral programs compete with AAU benchmark institutions in the recruitment of the top students into their programs."
+				},
+				{
+					year: "AY '19-'23",
+					title: "Amherst Memorial Fellowship",
+					organization: "Amherst College",
+					url: "https://www.amherst.edu/academiclife/support/fellowships/amherst",
+					description: "Amherst College Fellowships are a collection of nearly 20 different funds of varying sizes established over the past 150 years by generous alumni donors of Amherst College. They are devoted to supporting AC seniors and alumni who are pursuing either full-time, degree-granting graduate study or independent training in the performing arts."
+				},
+				{
+					year: "AY '22/'23",
+					title: "Fredric Bastiat Fellowship",
+					organization: "Mercatus Center @ George Mason University",
+					url: "https://www.mercatus.org/students/frederic-bastiat-fellowship",
+					description: "The Frédéric Bastiat Fellowship is a one-year, competitive fellowship program awarded to graduate students attending master's, juris doctoral, and doctoral programs in a variety of fields including economics, law, political science, and public policy. The aim of this fellowship is to introduce students to the Austrian, Virginia, and Bloomington schools of political economy as academic foundations for contemporary policy analysis, policy-relevant academic research, and other applied topics."
+				}
+			],
+			researchExperience: [
+				{
+					years: "+ 2 years",
+					department: "UMD Dept. of Public Policy & Government",
+					pi: "Dr. Jennifer Hadden",
+					role: "Research Assistant",
+					projects: [
+						{ name: "Understanding the social reception of energy in the developing world", url: "https://www.nsf.gov/awardsearch/showAward?AWD_ID=1949486&HistoricalAwards=false" },
+						{ name: "Transition, hedge, or resist? Understanding political and economic behavior toward decarbonization in the oil and gas industry", url: "https://doi.org/10.1080/09692290.2021.1946708" }
+					]
+				},
+				{
+					years: "+ 6 months",
+					department: "UO Dept. of Political Science",
+					pi: "Dr. Craig Kauffman",
+					role: "Research Assistant",
+					projects: [
+						{ name: "The Politics of Rights of Nature: Strategies for Building a More Sustainable Future", url: "https://direct.mit.edu/books/oa-monograph/5158/The-Politics-of-Rights-of-NatureStrategies-for" }
+					]
+				}
+			],
+			professionalService: [
+				{
+					years: "+ 2 years",
+					organization: "Graduate Teaching Fellows Federation (GTFF) Local 3544 AFT-OR AFL-CIO",
+					role: "VP of Membership AY '21-'22 & '22-'23"
+				}
+			]
+		};
+
+		function getFaIcon(platform) {
+			const icons = {
+				linkedin: '<i class="fa-brands fa-linkedin"></i>',
+				github: '<i class="fa-brands fa-square-github"></i>',
+				twitter: '<i class="fa-brands fa-twitter"></i>',
+				website: '<i class="fa-solid fa-globe"></i>'
+			};
+			return icons[platform] || '<i class="fa-solid fa-link"></i>';
+		}
+
+		function renderHero() {
+			const nameParts = CONFIG.personalInfo.name.split(' ');
+			const firstName = nameParts[0];
+			const lastName = nameParts.slice(1).join(' ');
+			
+			let emailsHtml = CONFIG.personalInfo.emails.map(email => 
+				`<a href="mailto:${email}">${email}</a>`
+			).join(' | ');
+			
+			let socialHtml = CONFIG.personalInfo.socialLinks.map(link => 
+				`<a class="social" href="${link.url}">${getFaIcon(link.platform)}</a>`
+			).join('');
+
+			return `
+				<h1 class="name"><strong>${firstName}</strong> ${lastName}</h1>
+				<span class="job-title">${CONFIG.personalInfo.title}</span>
+				<span class="email">
+					${emailsHtml} | 
+					${socialHtml}
+				</span>
+				<h2 class="lead">${CONFIG.personalInfo.lead}</h2>
+			`;
+		}
+
+		function renderAboutMe() {
+			return `
+				<h2 class="section-title">About Me</h2>
+				<p class="about-me">${CONFIG.personalInfo.aboutMe}</p>
+			`;
+		}
+
+		function renderEducation() {
+			const educationHtml = CONFIG.education.map(edu => {
+				const yearDisplay = edu.expected ? `* ${edu.year}` : edu.year;
+				const expectedNote = edu.expected ? '<br><span>* Expected graduation date</span>' : '';
+				return `
+					<div class="list-card">
+						<span class="exp"><i class="fa-solid fa-circle" style="transform: scale(0.25);"></i> ${yearDisplay}</span>
+						<div>
+							<h3>${edu.degree}</h3>
+							<span>${edu.institution} |</span>
+							<span>${edu.location}</span>
+							${expectedNote}
+						</div>
+					</div>
+				`;
+			}).join('');
+			
+			return `
+				<h2 class="section-title">Advanced Degrees</h2>
+				${educationHtml}
+			`;
+		}
+
+		function renderSkills() {
+			const skillsHtml = CONFIG.skills.map(skill => {
+				const descriptions = skill.description.split(';').map(d => `<span>${d.trim()}</span>`).join('');
+				return `
+					<div class="list-card">
+						<span class="exp">${skill.years}</span>
+						<div>
+							<h3>${skill.title}</h3>
+							${descriptions}
+						</div>
+					</div>
+				`;
+			}).join('');
+			
+			return `
+				<h2 class="section-title">Skills</h2>
+				${skillsHtml}
+			`;
+		}
+
+		function renderResearchInterests() {
+			const cardsHtml = CONFIG.researchInterests.map(interest => `
+				<card class="card">
+					<div class="skill-level">						
+						<span class="span">${interest.topic}</span>
+					</div>
+					<div class="skill-meta">						
+						<span>${interest.details}</span>
+					</div>
+				</card>
+			`).join('');
+
+			return `
+				<h2 class="section-title">Research interests & expertise</h2>
+				<div class="cards">
+					${cardsHtml}
+				</div>
+			`;
+		}
+
+		function renderPublications() {
+			const publicationsHtml = CONFIG.publications.map(pub => `
+				<div class="list-card">
+					<span class="exp"><i class="fa-solid fa-circle" style="transform: scale(0.25);"></i> ${pub.year}</span>
+					<div>
+						<h3>${pub.title}</h3>
+						<span>${pub.venue}</span>
+					</div>
+				</div>
+			`).join('');
+
+			return `
+				<h2 class="section-title">Publications</h2>
+				${publicationsHtml}
+			`;
+		}
+
+		function renderAwards() {
+			const awardsHtml = CONFIG.awards.map(award => `
+				<div class="list-card awards">
+					<span class="exp">${award.year}</span>
+					<div class="award">
+						<h3><a class="link" href="${award.url}">${award.title}</a></h3>
+						<span>${award.organization}</span>
+						<div class="award-description">
+							<p class="desc-text">${award.description}</p>
+						</div>
+					</div>
+				</div>
+			`).join('');
+
+			return `
+				<h2 class="section-title">Fellowships & Awards</h2>
+				${awardsHtml}
+			`;
+		}
+
+		function renderEmployment() {
+			const timelineItems = CONFIG.workHistory.map(job => `
+				<li>
+					<div class="point-container">
+						<span class="point"></span>
+						<span class="date">${job.dates}</span>
+						<div class="expanded-description">
+							<p>${job.description}</p>
+						</div>
+						<line class="line"><a href="${job.employerUrl}">${job.employer}</a></line>
+					</div>
+					<p class="description">${job.title}</p>
+					<p class="location">${job.location}</p>
+				</li>
+			`).join('');
+
+			return `
+				<h2 class="section-title">Professional employment</h2>
+				<ol class="timeline">
+					${timelineItems}
+				</ol>
+			`;
+		}
+
+		function renderResearchExperience() {
+			const researchHtml = CONFIG.researchExperience.map(exp => {
+				const projectsHtml = exp.projects.map((proj, idx) => 
+					`<li class="project">${idx + 1}. <a href="${proj.url}">${proj.name}</a></li>`
+				).join('');
+				
+				return `
+					<div class="list-card">
+						<span class="exp">${exp.years}</span>
+						<div>
+							<h3>${exp.department}</h3>
+							<span>${exp.role} | PI: ${exp.pi}</span>
+							<br><br>
+							<span>Projects:</span>
+							<ul class="projects">
+								${projectsHtml}
+							</ul>
+						</div>
+					</div>
+				`;
+			}).join('');
+
+			return `
+				<h2 class="section-title">Research experience</h2>
+				${researchHtml}
+			`;
+		}
+
+		function renderProfessionalService() {
+			const serviceHtml = CONFIG.professionalService.map(service => `
+				<div class="list-card">
+					<span class="exp">${service.years}</span>
+					<div>
+						<h3>${service.organization}</h3>
+						<span>${service.role}</span>
+					</div>
+				</div>
+			`).join('');
+
+			return `
+				<h2 class="section-title">Professional Service</h2>
+				${serviceHtml}
+			`;
+		}
+
+		document.addEventListener('DOMContentLoaded', function() {
+			document.getElementById('hero-content').innerHTML = renderHero();
+			document.getElementById('about-me-content').innerHTML = renderAboutMe();
+			document.getElementById('education-content').innerHTML = renderEducation();
+			document.getElementById('skills-content').innerHTML = renderSkills();
+			document.getElementById('research-interests-content').innerHTML = renderResearchInterests();
+			document.getElementById('publications-content').innerHTML = renderPublications();
+			document.getElementById('awards-content').innerHTML = renderAwards();
+			document.getElementById('employment-content').innerHTML = renderEmployment();
+			document.getElementById('research-experience-content').innerHTML = renderResearchExperience();
+			document.getElementById('professional-service-content').innerHTML = renderProfessionalService();
+		});
+	</script>
 </head>
 
 <body>
 
 	<div class="container">
-		<div class="hero">
-			<h1 class="name"><strong>Peter</strong> Suechting</h1>
-			<span class="job-title">Ph.D. Candidate, Environmental Science, Studies & Policy</span>
-			<span class="email">
-				<a href="mailto:psuechti@uoregon.edu">psuechti@uoregon.edu</a> | 
-				<a href="mailto:psuechting@gmail.com">psuechting@gmail.com</a> | 
-				<a class="social"href="https://www.linkedin.com/in/peter-suechting-05a738a5"><i  class="fa-brands fa-linkedin"></i></a>
-				<a class="social"href="https://github.com/psuechting"><i class="fa-brands fa-square-github"></i></a>
-			</span>
-			<h2 class="lead">energy transitions; climate policy (& implementation); social movements</h2>
+		<div class="hero" id="hero-content">
 		</div>
 	</div>
 
-	<!-- About Me section -->
 	<div class="container">
-		<div class="hero about-me">
-			<h2 class="section-title">About Me</h2>
-			<p class="about-me">
-				Researcher, data wrangler, & analyst specializing in informational systems design, development, & implementation for mission-focused organizations in the climate space. Experienced manager & thought leader in energy, climate, infrastructure, & industrial policy. Committed to delivering results with exceptional communication, collaboration, humility, and humor. Passionate about environmental issues, media, culture, & political economy.
-			</p>
+		<div class="hero about-me" id="about-me-content">
 		</div>
 	</div>
-	<!-- Skills and interest section -->
+
 	<div class="container">
-		<div class="sections">
-			<h2 class="section-title">Advanced Degrees</h2>
-			
-			<div class="list-card">
-				<span class="exp"><i class="fa-solid fa-circle" style="transform: scale(0.25);"></i> 2015</span>
-				<div>
-					<h3>B.A., Environmental Studies</h3>
-					<span>Amherst College |</span>
-					<span>Amherst, MA</span>
-				</div>
-			</div>
-
-			<div class="list-card">
-				<span class="exp"><i class="fa-solid fa-circle" style="transform: scale(0.25);"></i> 2022</span>
-				<div>
-					<h3>M.S., Political Science</h3>
-					<span>University of Oregon |</span>
-					<span>Eugene, OR</span>
-				</div>
-			</div>
-
-			<div class="list-card">
-				<span class="exp">* 25/26</span>
-				<div>
-					<h3>Ph.D. Candidate, Environmental Studies, Science, & Policy</h3>
-					<span>University of Oregon |</span>
-					<span>Eugene, OR</span>
-					<br>
-					<span>* Expected graduation date</span>
-				</div>
-			</div>
+		<div class="sections" id="education-content">
 		</div>
 		
-		<div class="sections">
-			<h2 class="section-title">Skills</h2>
-
-			<div class="list-card">
-				<span class="exp">+ 9 years</span>
-				<div>
-					<h3>Social scientific research design</h3>
-					<span>Literature review, contextualization & synthesis; concept mapping; hypothesis testing; data collection; quantitative & qualitative methodologies; Nested analysis/multi-methodology</span>
-				</div>
-			</div>
-
-			<div class="list-card">
-				<span class="exp">+ 7 years</span>
-				<div>
-					<h3>Econometric techniques & statistical programming</h3>
-					<span>R/RStudio/Markdown & <latex>Latex</latex>; Experiments; Causal Inference; Machine Learning; Data Visualization</span>
-				</div>
-			</div>
-
-			<div class="list-card">
-				<span class="exp">+ 5 years</span>
-				<div>
-					<h3>CRM design, management</h3>
-					<span>AirTable; Salesforce; Salsa; ActionNetwork; Hustle; Bespoke projects</span>
-
-					<h3>Full-stack software development</h3>
-					<span>HTML; CSS; JS/EJS; Node; Git; Bash</span>
-				</div>
-			</div>
-
+		<div class="sections" id="skills-content">
 		</div>
 	</div>
 
-	<!-- Research Interests & Expertise -->
 	<div class="container">
-		<div class="card-container">
-			<h2 class="section-title">Research interests & expertise</h2>
-			<div class="cards">
-				<card class="card">
-					<div class="skill-level">						
-						<span class="span">Energy transitions</span>
-					</div>
-
-					<div class="skill-meta">						
-						<span>Environmental history; Labor history; History of capitalism; Science & technology studies (STS); Sociotechnical regimes; Petro-states; Carbon majors; State-Capital-Energy nexus; Critical development studies</span>
-					</div>
-				</card>
-
-				<card class="card">
-					<div class="skill-level">
-						<span>Climate policy</span>
-					</div>
-
-					<div class="skill-meta">
-						<span>Industrial & regulatory policy; U.S. electricity grid reform & permitting reform; U.S.-China relations; BRICS+/non-aligned countries; Climate regime complex (UNFCCC); Earth system governance in the Anthropocene</span>
-					</div>
-
-				</card>
-
-				<card class="card">
-					<div class="skill-level">
-						<span class="span">Social movements</span>
-					</div>
-
-					<div class="skill-meta">
-						<span>Environmental grievance; Transnational climate justice; Networks; Social acceptability; Framing effects; NIMBY/ YIMBY; Rural land-use, transmission & pipeline politics</span>
-					</div>
-				</card>
-			</div>
-		</div>
-	
-	</div>
-	
-	<!-- Publications/Fellowships/Awards -->
-	<div class="container">
-		<div class="sections">
-			<h2 class="section-title">Publications</h2>
-
-			<div class="list-card">
-				<span class="exp"><i class="fa-solid fa-circle" style="transform: scale(0.25);"></i> 2022</span>
-				<div>
-					<h3>Co-authored chapter</h3>
-					<span><a class="link" href="https://www.taylorfrancis.com/chapters/edit/10.4324/9781003008873-12/international-environmental-regimes-peter-suechting-mary-pettenger?context=ubx&refId=87cc156b-887f-4eea-b77d-f8dcac4d19b9">Suechting, P., & Pettenger, M. (2022). International environmental regimes: Formation, effectiveness, trends and challenges.</a> In P. G. Harris (Ed.), Routledge handbook of global environmental politics (Second ed.). Routledge.</span>
-				</div>
-
-			</div>
-
-			<div class="list-card">
-
-			</div>
-		</div>
-
-		<div class="sections">
-			<h2 class="section-title">Fellowships & Awards</h2>
-
-			<div class="list-card awards">
-				<span class="exp">AY '19/'20</span>
-				<div class="award">
-					<h3><a class="link" href="https://graduatestudies.uoregon.edu/funding/awards/lokey-graduate-science-awards">Lokey Science Award</a></h3>
-					<span>University of Oregon, Division of Graduate Studies</span>
-
-					<div class="award-description">
-						<p class="desc-text">
-							Made possible by a generous donation of Mr. Lorry I. Lokey, the Lokey Graduate Science Awards aim to help doctoral programs compete with AAU benchmark institutions in the recruitment of the top students into their programs.
-						</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="list-card awards">
-				<span class="exp">AY '19-'23</span>
-				<div class="award">
-					<h3><a class="link" href="https://www.amherst.edu/academiclife/support/fellowships/amherst">Amherst Memorial Fellowship</a></h3>
-					<span>Amherst College</span>
-					<div class="award-description">
-						<p>
-							Amherst College Fellowships are a collection of <a href="https://www.amherst.edu/academiclife/support/fellowships/amherst/ac-fellowships-descriptions">nearly 20 different funds</a> of varying sizes established over the past 150 years by generous alumni donors of Amherst College. They are devoted to supporting AC seniors and alumni who are pursuing either full-time, degree-granting graduate study or independent training in the performing arts.
-						</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="list-card awards">
-				<span class="exp">AY '22/'23</span>
-				<div class="award">
-					<h3><a class="link" href="https://www.mercatus.org/students/frederic-bastiat-fellowship">Fredric Bastiat Fellowship</a></h3>
-					<span>Mercatus Center @ George Mason University</span>
-					<div class="award-description">
-						<p>
-							The Frédéric Bastiat Fellowship is a one-year, competitive fellowship program awarded to graduate students attending master’s, juris doctoral, and doctoral programs in a variety of fields including economics, law, political science, and public policy. The aim of this fellowship is to introduce students to the Austrian, Virginia, and Bloomington schools of political economy as academic foundations for contemporary policy analysis, policy-relevant academic research, and other applied topics.
-						</p>
-					</div>
-				</div>
-			</div>
-
-		</div>
-	</div>
-
-	<!-- Timeline -->
-
-	<div class="container">
-		<div class="container sub">
-			<h2 class="section-title">Professional employment</h2>
-		
-			<ol class="timeline">
-			<li>
-				<div class="point-container">
-					<span class="point"></span>
-					<span class="date">Apr 2016</span>
-					<div class="expanded-description">
-						<p>
-							Community Voters Project is helping to increase civic engagement among underserved and underrepresented communities, focusing primarily on African Americans, Latinos, and in some locations, young people, through non­partisan voter registration and GOTV campaigns.
-						</p>
-					</div>
-					<line class="line"><a href="https://www.cfpir.org/community-voters-project">Community Voters Projects</a></line>
-				</div>
-				<p class="description">
-					Canvass Office Director
-				</p>
-			
-				<p class="location">
-					Pueblo, CO
-				</p>
-			</li>
-
-			<li>
-				<div class="point-container"> 
-					<span class="point"></span>
-					<span class="date">Aug 2016</span>
-					<div class="expanded-description">
-						<p>
-							NextGen Climate acts politically to prevent climate disaster and promote prosperity for every American.
-						</p>
-					</div>
-					<line class="line"><a href="https://www.nextgenclimate.org">NextGen Climate NH</a></line>
-				</div>	
-				<p class="description">
-					State Operations Director
-				</p>
-				
-				<p class="location">
-					Manchester, NH
-				</p>
-			</li>
-
-			<li>
-				<div class="point-container">
-					<span class="point"></span>
-					<span class="date">Feb 2017</span>
-					<div class="expanded-description">
-						<p>
-							Corporate Accountability wages strategic campaigns that compel transnational corporations, and the governments that do their bidding, to stop destroying our health, human rights, democracy, and planet.
-						</p>
-					</div>
-					<line class="line"><a href="https://www.corporateaccountability.org">Corporate Accountability</a></line>
-				</div>
-					<p class="description">
-						Data & Analysis Manager
-					</p>
-					
-				<p class="location">
-					Boston, MA
-				</p>
-			</li>
-
-			<li>
-				<div class="point-container">
-					<span class="date">Sept 2019</span>
-					<div class="expanded-description">
-						<p>
-							Founded in 1976, the Environmental Studies program laid the early foundation for the UO’s strong track record in environmental research and teaching; now, with 26 core faculty and more than 100 participating faculty from 30 campus departments and programs, it sets the standard in interdisciplinary dialogue and collaboration.
-						</p>
-					</div>
-					<span class="point"></span>
-					<line class="line"><a href="https://socialsciences.uoregon.edu/envs">UO Political Science & Environmental Studies</a></line>
-
-				</div>
-				
-				<p class="description">
-					Ph.D. Candidate
-				</p>
-
-				<p class="location">
-					Eugene, OR
-				</p>
-			</li>
-			</ol>
+		<div class="card-container" id="research-interests-content">
 		</div>
 	</div>
 	
+	<div class="container">
+		<div class="sections" id="publications-content">
+		</div>
+
+		<div class="sections" id="awards-content">
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="container sub" id="employment-content">
+		</div>
+	</div>
 	
 	<div class="container">
-		<div class="sections">
-			<h2 class="section-title">Research experience</h2>
-			<div class="list-card">
-				<span class="exp">+ 2 years</span>
-				<div>
-					<h3>UMD Dept. of Public Policy & Government</h3>
-					<span>Research Assistant | PI: Dr. Jennifer Hadden</span>
-					<br><br>
-					<span>Projects:</span>
-					<ul class="projects">
-						<li class="project">1. <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1949486&HistoricalAwards=false">Understanding the social reception of energy in the developing world</a></li>
-						<li class="project">2. <a href="https://doi.org/10.1080/09692290.2021.1946708">Transition, hedge, or resist? Understanding political and economic behavior toward decarbonization in the oil and gas industry</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="list-card">
-				<span class="exp">+ 6 months</span>
-				<div>
-					<h3>UO Dept. of Political Science</h3>
-					<span>Research Assistant | PI: Dr. Craig Kauffman</span>
-					<br><br>
-					<span>Project:</span> 
-					<ul class="projects">
-						<li class="project">1. <a href="https://direct.mit.edu/books/oa-monograph/5158/The-Politics-of-Rights-of-NatureStrategies-for">The Politics of Rights of Nature: Strategies for Building a More Sustainable Future</a></li>
-					</ul>
-				</div>
-			</div>
+		<div class="sections" id="research-experience-content">
 		</div>
 
-		<div class="sections">
-			<h2 class="section-title">Professional Service</h2>
-			<div class="list-card">
-				<span class="exp">+ 2 years</span>
-				<div>
-					<h3>Graduate Teaching Fellows Federation (GTFF) Local 3544 AFT-OR AFL-CIO</h3>
-					<span>VP of Membership AY '21-'22 & '22-'23</span>
-				</div>
-			</div>
+		<div class="sections" id="professional-service-content">
 		</div>
-
-		
 	</div>
 
 	<footer class="container">
-		<span style="font-size: 16px; margin-top: 10%">Published by Peter Suechting</a></span>
+		<span style="font-size: 16px; margin-top: 10%">Published by Peter Suechting</span>
 	</footer>
 
 </body>
