@@ -472,3 +472,167 @@ footer {
 .card-container {
 	animation-delay: 0.1s;
 }
+
+/* Expanded Biography - Horizontal Crack Animation */
+.read-more-bio {
+	display: inline-block;
+	margin-left: 12px;
+	font-size: 15px;
+	color: var(--color-accent);
+	cursor: pointer;
+	text-decoration: underline;
+	transition: color var(--transition);
+}
+
+.read-more-bio:hover {
+	color: var(--color-text);
+}
+
+#expanded-bio-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: 1000;
+	overflow: hidden;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+#expanded-bio-container.active {
+	opacity: 1;
+	visibility: visible;
+}
+
+#expanded-bio-container.active .expanded-bio-content {
+	transform: translateY(0);
+	opacity: 1;
+}
+
+.expanded-bio-content {
+	position: relative;
+	max-width: var(--container-max);
+	margin: 0 auto;
+	padding: 80px 24px;
+	background-color: var(--color-bg);
+	max-height: 100vh;
+	overflow-y: auto;
+	transform: translateY(40px);
+	opacity: 0;
+	transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.expanded-bio-content::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(250, 248, 245, 0.95);
+	pointer-events: none;
+	z-index: -1;
+}
+
+.expanded-bio-content .bio-text {
+	font-size: 17px;
+	line-height: 1.8;
+	color: var(--color-text);
+	margin-bottom: 24px;
+	max-width: 800px;
+}
+
+.expanded-bio-content .section-title {
+	margin-bottom: 40px;
+}
+
+.close-bio-btn {
+	position: fixed;
+	top: 24px;
+	right: 24px;
+	width: 48px;
+	height: 48px;
+	border: none;
+	background-color: var(--color-card-bg);
+	color: var(--color-text);
+	font-size: 28px;
+	cursor: pointer;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color var(--transition), transform var(--transition);
+	box-shadow: 0 2px 8px rgba(26, 39, 68, 0.1);
+	z-index: 1001;
+}
+
+.close-bio-btn:hover {
+	background-color: var(--color-accent);
+	color: white;
+	transform: rotate(90deg);
+}
+
+/* Crack effect overlay */
+.crack-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	z-index: 999;
+}
+
+.crack-line {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	height: 0;
+	background: linear-gradient(90deg, 
+		transparent 0%, 
+		var(--color-accent) 20%, 
+		var(--color-accent) 80%, 
+		transparent 100%
+	);
+	transform: scaleX(0);
+	transition: transform 0.3s ease;
+}
+
+#expanded-bio-container.active .crack-line {
+	height: 2px;
+	transform: scaleX(1);
+}
+
+/* Top panel (slides up) */
+.page-panel-top {
+	transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+#expanded-bio-container.active .page-panel-top {
+	transform: translateY(-30px);
+}
+
+/* Bottom panel (slides down) */
+.page-panel-bottom {
+	transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+#expanded-bio-container.active .page-panel-bottom {
+	transform: translateY(30px);
+}
+
+/* Subtle backdrop */
+#expanded-bio-container.active::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(250, 248, 245, 0.95);
+	pointer-events: none;
+	z-index: -1;
+}
