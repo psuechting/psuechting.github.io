@@ -458,6 +458,17 @@
 					}
 				});
 			}
+			
+			// Also allow closing by clicking on the fold line
+			const foldLine = document.querySelector('.fold-line');
+			if (foldLine && expandedBioContainer) {
+				foldLine.style.cursor = 'pointer';
+				foldLine.addEventListener('click', function() {
+					if (expandedBioContainer.classList.contains('active')) {
+						expandedBioContainer.classList.remove('active');
+					}
+				});
+			}
 		});
 	</script>
 </head>
@@ -483,7 +494,7 @@
 			<p class="bio-text">My career began in electoral and community organizing — directing canvass operations for Community Voters Project in Colorado and serving as State Operations Director for NextGen Climate in New Hampshire during the 2016 cycle. That work evolved into data and analytics, including a role as Data and Analysis Manager at Corporate Accountability, where I contributed to campaigns targeting GE, Philip Morris, and Exxon Mobil.</p>
 			<p class="bio-text">Beyond research, I bring over 8 years of experience in database development and CRM design and management, specializing in informational systems design and implementation for mission-driven organizations in the climate space.</p>
 			<p class="bio-text">I have been recognized with the Lokey Science Award from the UO Division of Graduate Studies, the Amherst Memorial Fellowship, and the Fredric Bastiat Fellowship from the Mercatus Center at George Mason University.</p>
-			<button id="close-expanded-bio" class="close-bio-btn">×</button>
+			<button id="close-expanded-bio" class="close-bio-btn">Close ×</button>
 		</div>
 	</div>
 

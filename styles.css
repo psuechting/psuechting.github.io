@@ -609,6 +609,12 @@ footer {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	cursor: pointer;
+	transition: opacity var(--transition);
+}
+
+.fold-line:hover {
+	opacity: 0.7;
 }
 
 .fold-line::before {
@@ -656,26 +662,26 @@ footer {
 
 /* Updated close button for in-flow */
 #expanded-bio-container .close-bio-btn {
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 36px;
-	height: 36px;
+	display: inline-block;
+	position: relative;
+	top: auto;
+	right: auto;
+	width: auto;
+	height: auto;
 	border: none;
-	background-color: var(--color-card-bg);
-	color: var(--color-text-secondary);
-	font-size: 20px;
+	background: none;
+	color: var(--color-accent);
+	font-size: 14px;
+	font-family: var(--font-body);
 	cursor: pointer;
-	border-radius: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	transition: background-color var(--transition), color var(--transition), transform var(--transition);
-	box-shadow: 0 2px 8px rgba(26, 39, 68, 0.1);
+	padding: 8px 16px;
+	margin-top: 8px;
+	border-radius: 4px;
+	transition: background-color var(--transition), color var(--transition);
 }
 
 #expanded-bio-container .close-bio-btn:hover {
-	background-color: var(--color-accent);
-	color: white;
-	transform: rotate(90deg);
+	background-color: var(--color-card-bg);
+	color: var(--color-text);
+	transform: none;
 }
