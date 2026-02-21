@@ -25,64 +25,71 @@
 				lead: "energy transitions; climate policy (& implementation); social movements",
 				aboutMe: "Researcher, data wrangler, & analyst specializing in informational systems design, development, & implementation for mission-focused organizations in the climate space. Experienced manager & thought leader in energy, climate, infrastructure, & industrial policy. Committed to delivering results with exceptional communication, collaboration, humility, and humor. Passionate about environmental issues, media, culture, & political economy."
 			},
-			workHistory: [
-				{
-					employer: "AFT",
-					employerUrl: "https://or.aft.org/",
-					title: "Data Specialist",
-					dates: "Oct 2025",
-					location: "Eugene, OR",
-					description: "Responsible for the construction, implementation, and administration of individualized local databases customized to local political organizing contexts. Responsible for the design of information systems for membership management, organizing, power-building, and bargaining unit analytics."
-				},
-				{
-					employer: "AFT",
-					employerUrl: "https://or.aft.org/",
-					title: "Database Developer",
-					dates: "Mar 2024",
-					location: "Remote",
-					description: "Informational systems design for membership management, organizing, and power-building and bargaining unit analytics."
-				},
-				{
-					employer: "Climate Finance Solutions",
-					employerUrl: "https://www.climatefinancesolutions.com/",
-					title: "Funding Research Analyst",
-					dates: "Oct 2023",
-					location: "Remote",
-					description: "Climate Finance Solutions (CFS) is a global consultancy that helps companies and organizations secure large-scale grant funding to develop and scale their high-impact climate solutions."
-				},
-				{
-					employer: "Community Voters Project",
-					employerUrl: "https://www.cfpir.org/community-voters-project",
-					title: "Canvass Office Director",
-					dates: "Apr 2016",
-					location: "Pueblo, CO",
-					description: "Community Voters Project is helping to increase civic engagement among underserved and underrepresented communities, focusing primarily on African Americans, Latinos, and in some locations, young people, through non-partner voter registration and GOTV campaigns."
-				},
-				{
-					employer: "NextGen Climate NH",
-					employerUrl: "https://www.nextgenclimate.org",
-					title: "State Operations Director",
-					dates: "Aug 2016",
-					location: "Manchester, NH",
-					description: "NextGen Climate acts politically to prevent climate disaster and promote prosperity for every American."
-				},
-				{
-					employer: "Corporate Accountability",
-					employerUrl: "https://www.corporateaccountability.org",
-					title: "Data & Analysis Manager",
-					dates: "Feb 2017",
-					location: "Boston, MA",
-					description: "Corporate Accountability wages strategic campaigns that compel transnational corporations, and the governments that do their bidding, to stop destroying our health, human rights, democracy, and planet."
-				},
-				{
-					employer: "UO Political Science & Environmental Studies",
-					employerUrl: "https://socialsciences.uoregon.edu/envs",
-					title: "Ph.D. Candidate",
-					dates: "Sept 2019",
-					location: "Eugene, OR",
-					description: "Founded in 1976, the Environmental Studies program laid the early foundation for the UO's strong track record in environmental research and teaching; now, with 26 core faculty and more than 100 participating faculty from 30 campus departments and programs, it sets the standard in interdisciplinary dialogue and collaboration."
-				}
-			],
+		workHistory: [
+			{
+				employer: "AFT",
+				employerUrl: "https://or.aft.org/",
+				title: "Data Specialist",
+				dates: "Oct 2025",
+				sortDate: "2025-10",
+				location: "Eugene, OR",
+				description: "Responsible for the construction, implementation, and administration of individualized local databases customized to local political organizing contexts. Responsible for the design of information systems for membership management, organizing, power-building, and bargaining unit analytics."
+			},
+			{
+				employer: "AFT",
+				employerUrl: "https://or.aft.org/",
+				title: "Database Developer",
+				dates: "Mar 2024",
+				sortDate: "2024-03",
+				location: "Remote",
+				description: "Informational systems design for membership management, organizing, and power-building and bargaining unit analytics."
+			},
+			{
+				employer: "Climate Finance Solutions",
+				employerUrl: "https://www.climatefinancesolutions.com/",
+				title: "Funding Research Analyst",
+				dates: "Oct 2023",
+				sortDate: "2023-10",
+				location: "Remote",
+				description: "Climate Finance Solutions (CFS) is a global consultancy that helps companies and organizations secure large-scale grant funding to develop and scale their high-impact climate solutions."
+			},
+			{
+				employer: "UO Political Science & Environmental Studies",
+				employerUrl: "https://socialsciences.uoregon.edu/envs",
+				title: "Ph.D. Candidate",
+				dates: "Sept 2019",
+				sortDate: "2019-09",
+				location: "Eugene, OR",
+				description: "Founded in 1976, the Environmental Studies program laid the early foundation for the UO's strong track record in environmental research and teaching; now, with 26 core faculty and more than 100 participating faculty from 30 campus departments and programs, it sets the standard in interdisciplinary dialogue and collaboration."
+			},
+			{
+				employer: "Corporate Accountability",
+				employerUrl: "https://www.corporateaccountability.org",
+				title: "Data & Analysis Manager",
+				dates: "Feb 2017",
+				sortDate: "2017-02",
+				location: "Boston, MA",
+				description: "Corporate Accountability wages strategic campaigns that compel transnational corporations, and the governments that do their bidding, to stop destroying our health, human rights, democracy, and planet."
+			},
+			{
+				employer: "NextGen Climate NH",
+				employerUrl: "https://www.nextgenclimate.org",
+				title: "State Operations Director",
+				dates: "Aug 2016",
+				sortDate: "2016-08",
+				location: "Manchester, NH",
+				description: "NextGen Climate acts politically to prevent climate disaster and promote prosperity for every American."
+			},
+			{
+				employer: "Community Voters Project",
+				employerUrl: "https://www.cfpir.org/community-voters-project",
+				title: "Canvass Office Director",
+				dates: "Apr 2016",
+				sortDate: "2016-04",
+				location: "Pueblo, CO",
+				description: "Community Voters Project is helping to increase civic engagement among underserved and underrepresented communities, focusing primarily on African Americans, Latinos, and in some locations, young people, through non-partner voter registration and GOTV campaigns."
+			}
+		],
 			education: [
 				{
 					degree: "B.A., Environmental Studies",
@@ -346,26 +353,28 @@
 		}
 
 		function renderEmployment() {
-			const timelineItems = CONFIG.workHistory.map(job => `
-				<li>
-					<div class="point-container">
-						<span class="point"></span>
-						<span class="date">${job.dates}</span>
-						<div class="expanded-description">
-							<p>${job.description}</p>
-						</div>
-						<line class="line"><a href="${job.employerUrl}">${job.employer}</a></line>
+			const sortedJobs = [...CONFIG.workHistory].sort((a, b) => 
+				b.sortDate.localeCompare(a.sortDate)
+			);
+			
+			const timelineItems = sortedJobs.map(job => `
+				<div class="employment-card">
+					<div class="timeline-dot"></div>
+					<div class="timeline-content">
+						<span class="employment-date">${job.dates}</span>
+						<h3 class="employment-title">${job.title}</h3>
+						<a href="${job.employerUrl}" class="employment-employer" target="_blank">${job.employer}</a>
+						<span class="employment-location">${job.location}</span>
+						<p class="employment-description">${job.description}</p>
 					</div>
-					<p class="description">${job.title}</p>
-					<p class="location">${job.location}</p>
-				</li>
+				</div>
 			`).join('');
 
 			return `
 				<h2 class="section-title">Professional employment</h2>
-				<ol class="timeline">
+				<div class="vertical-timeline">
 					${timelineItems}
-				</ol>
+				</div>
 			`;
 		}
 
@@ -429,32 +438,23 @@
 			const expandedBioContainer = document.getElementById('expanded-bio-container');
 			const readMoreBtn = document.querySelector('.read-more-bio');
 			const closeBtn = document.getElementById('close-expanded-bio');
-
+			
 			if (readMoreBtn && expandedBioContainer) {
 				readMoreBtn.addEventListener('click', function(e) {
 					e.preventDefault();
 					expandedBioContainer.classList.add('active');
-					document.body.style.overflow = 'hidden';
+					expandedBioContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
 				});
 			}
-
+			
 			if (closeBtn && expandedBioContainer) {
 				closeBtn.addEventListener('click', function() {
 					expandedBioContainer.classList.remove('active');
-					document.body.style.overflow = '';
 				});
-
+				
 				document.addEventListener('keydown', function(e) {
 					if (e.key === 'Escape' && expandedBioContainer.classList.contains('active')) {
 						expandedBioContainer.classList.remove('active');
-						document.body.style.overflow = '';
-					}
-				});
-
-				expandedBioContainer.addEventListener('click', function(e) {
-					if (e.target === expandedBioContainer) {
-						expandedBioContainer.classList.remove('active');
-						document.body.style.overflow = '';
 					}
 				});
 			}
@@ -474,6 +474,19 @@
 		</div>
 	</div>
 
+	<div class="container" id="expanded-bio-container">
+		<div class="fold-line"></div>
+		<div class="expanded-bio-inner">
+			<h2 class="section-title">About Me</h2>
+			<p class="bio-text">I am a researcher, data wrangler, and analyst working at the intersection of environmental studies, political economy, and climate policy. I hold a B.A. in Environmental Studies from Amherst College (2015) and an M.S. in Political Science from the University of Oregon (2022), where I am currently a Ph.D. Candidate in Environmental Studies, Science, and Policy, with an expected defense and graduation in Spring 2026.</p>
+			<p class="bio-text">My research sits at the confluence of energy transitions, climate policy, and social movements — spanning topics from sociotechnical regimes and carbon majors to U.S. electricity grid reform, transnational climate justice, and the politics of rural land use and transmission infrastructure. I have contributed to research projects on the social reception of energy in the developing world and on political and economic behavior in the oil and gas industry toward decarbonization, and co-authored a chapter on international environmental regimes in the Routledge Handbook of Global Environmental Politics (2022).</p>
+			<p class="bio-text">My career began in electoral and community organizing — directing canvass operations for Community Voters Project in Colorado and serving as State Operations Director for NextGen Climate in New Hampshire during the 2016 cycle. That work evolved into data and analytics, including a role as Data and Analysis Manager at Corporate Accountability, where I contributed to campaigns targeting GE, Philip Morris, and Exxon Mobil.</p>
+			<p class="bio-text">Beyond research, I bring over 8 years of experience in database development and CRM design and management, specializing in informational systems design and implementation for mission-driven organizations in the climate space.</p>
+			<p class="bio-text">I have been recognized with the Lokey Science Award from the UO Division of Graduate Studies, the Amherst Memorial Fellowship, and the Fredric Bastiat Fellowship from the Mercatus Center at George Mason University.</p>
+			<button id="close-expanded-bio" class="close-bio-btn">×</button>
+		</div>
+	</div>
+
 	<div class="container">
 		<div class="sections" id="education-content">
 		</div>
@@ -483,20 +496,20 @@
 	</div>
 
 	<div class="container">
-		<div class="card-container" id="research-interests-content">
+		<div class="sections employment-section" id="employment-content">
 		</div>
 	</div>
 	
+	<div class="container">
+		<div class="card-container" id="research-interests-content">
+		</div>
+	</div>
+
 	<div class="container">
 		<div class="sections" id="publications-content">
 		</div>
 
 		<div class="sections" id="awards-content">
-		</div>
-	</div>
-
-	<div class="container">
-		<div class="container sub" id="employment-content">
 		</div>
 	</div>
 	
@@ -511,21 +524,6 @@
 	<footer class="container">
 		<span style="font-size: 16px; margin-top: 10%">Published by Peter Suechting</span>
 	</footer>
-
-	<div id="expanded-bio-container">
-		<div class="crack-overlay">
-			<div class="crack-line"></div>
-		</div>
-		<div class="expanded-bio-content">
-			<h2 class="section-title">About Me</h2>
-			<p class="bio-text">I am a researcher, data wrangler, and analyst working at the intersection of environmental studies, political economy, and climate policy. I hold a B.A. in Environmental Studies from Amherst College (2015) and an M.S. in Political Science from the University of Oregon (2022), where I am currently a Ph.D. Candidate in Environmental Studies, Science, and Policy, with an expected defense and graduation in Spring 2026.</p>
-			<p class="bio-text">My research sits at the confluence of energy transitions, climate policy, and social movements — spanning topics from sociotechnical regimes and carbon majors to U.S. electricity grid reform, transnational climate justice, and the politics of rural land use and transmission infrastructure. I have contributed to research projects on the social reception of energy in the developing world and on political and economic behavior in the oil and gas industry toward decarbonization, and co-authored a chapter on international environmental regimes in the Routledge Handbook of Global Environmental Politics (2022).</p>
-			<p class="bio-text">My career began in electoral and community organizing — directing canvass operations for Community Voters Project in Colorado and serving as State Operations Director for NextGen Climate in New Hampshire during the 2016 cycle. That work evolved into data and analytics, including a role as Data and Analysis Manager at Corporate Accountability, where I contributed to campaigns targeting GE, Philip Morris, and Exxon Mobil.</p>
-			<p class="bio-text">Beyond research, I bring over 8 years of experience in database development and CRM design and management, specializing in informational systems design and implementation for mission-driven organizations in the climate space.</p>
-			<p class="bio-text">I have been recognized with the Lokey Science Award from the UO Division of Graduate Studies, the Amherst Memorial Fellowship, and the Fredric Bastiat Fellowship from the Mercatus Center at George Mason University.</p>
-			<button id="close-expanded-bio" class="close-bio-btn">×</button>
-		</div>
-	</div>
 
 </body>
 
