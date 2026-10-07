@@ -10,6 +10,8 @@ Most content is plain data — edit these files, no code required:
 |---|---|
 | Name, title, emails, social links, short "About" blurb | `src/data/profile.ts` |
 | Full bio | `src/content/bio/full.md` |
+| Dissertation (home page card + `/research/dissertation/`) | `src/content/dissertation/full-green-ahead.md` |
+| Projects (one Markdown file each; `draft: true` hides it) | `src/content/projects/` |
 | Jobs (`end: present` for a current role) | `src/data/work.yaml` |
 | Degrees | `src/data/education.yaml` |
 | Skills | `src/data/skills.yaml` |
@@ -29,5 +31,8 @@ Requires Node 22.12+.
 npm install
 npm run dev      # http://localhost:4321
 npm run build    # type-check + build to dist/
+npm run build:cv # print /cv/ to dist/peter-suechting-cv.pdf (after build)
 npm run preview  # serve the built site
 ```
+
+The CV at `/cv/` and the PDF are generated from the same data files as the home page, so there's nothing separate to keep up to date. `build:cv` needs Playwright's Chromium once: `npx playwright install chromium`. In local dev, the "Download CV" link 404s until you run `build` + `build:cv`; the deploy workflow does this automatically.

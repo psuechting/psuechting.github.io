@@ -1,0 +1,22 @@
+---
+import { getPublishedProjects } from '../lib/projects';
+
+const projects = await getPublishedProjects();
+---
+
+{
+	projects.length > 0 && (
+		<section class="card-container">
+			<h2 class="section-title">Projects</h2>
+			<div class="cards">
+				{projects.map(({ id, data }) => (
+					<article class="card">
+						<span class="feature-eyebrow">{data.organization} · {data.years}</span>
+						<h3 class="card-title"><a href={`/projects/${id}/`}>{data.title}</a></h3>
+						<p class="card-meta">{data.summary}</p>
+					</article>
+				))}
+			</div>
+		</section>
+	)
+}
