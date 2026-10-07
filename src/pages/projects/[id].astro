@@ -22,6 +22,6 @@ const { data } = project;
 		<p class="article-meta">{data.role}</p>
 		{data.tools.length > 0 && <p class="tag-list">{data.tools.map((tool) => <span class="tag">{tool}</span>)}</p>}
 		<div class="prose"><Content /></div>
-		{data.url && <p><a class="button button-primary" href={data.url}>Visit project</a></p>}
+		{data.url && <p><a class="button button-primary" href={data.url} target="_blank" rel="noopener">Visit {data.organization}</a></p>}
 	</main>
 </Base>
