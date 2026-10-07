@@ -2,7 +2,7 @@
 title: About Me
 ---
 
-I am a researcher, data wrangler, and analyst working at the intersection of environmental studies, political economy, and climate policy. I hold a B.A. in Environmental Studies from Amherst College (2015), an M.S. in Political Science from the University of Oregon (2022), and a Ph.D. in Environmental Studies, Science, and Policy from the University of Oregon (2026).
+I am a researcher, data wrangler, and analyst working at the intersection of environmental studies, political economy, and climate policy. I hold a B.A. in Environmental Studies from Amherst College (2015), an M.S. in Political Science from the University of Oregon (2022), and a Ph.D. in Environmental Sciences, Studies, and Policy from the University of Oregon (2026).
 
 My dissertation, *"Full 'Green' Ahead: Energy Facility Siting and Environmental Inequality Formation in the 'Green' Transition,"* asks whether the past two decades of energy facility siting have reinforced or disrupted patterns of environmental inequality. Using a continental-scale panel dataset spanning 2001–2019, I cross-reference EIA facility data with census tract demographics to examine how race, income, and political power shape where energy infrastructure lands, and who bears its costs. The core findings suggest the green transition doesn't eliminate environmental inequality, it reconfigures it. Different communities now shoulder renewable energy's burdens than historically bore fossil fuels', but burden-bearing itself persists as a structurally determined outcome. Addressing it demands redesigning the siting process itself, not just swapping technologies.
 
