@@ -1,13 +1,16 @@
 ---
 import '../styles/global.css';
 import { profile } from '../data/profile';
+import Nav from '../components/Nav.astro';
 
 interface Props {
 	title?: string;
 	description?: string;
+	/** Hide the top navigation (used by the printable CV). */
+	nav?: boolean;
 }
 
-const { title = `${profile.name}, ${profile.honorific}`, description = profile.description } = Astro.props;
+const { title = `${profile.name}, ${profile.honorific}`, description = profile.description, nav = true } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -40,6 +43,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 		/>
 	</head>
 	<body>
+		{nav && <Nav />}
 		<slot />
 	</body>
 </html>

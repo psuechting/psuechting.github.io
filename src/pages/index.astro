@@ -2,37 +2,41 @@
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';
-import Education from '../components/Education.astro';
-import Skills from '../components/Skills.astro';
-import Employment from '../components/Employment.astro';
+import DissertationFeature from '../components/DissertationFeature.astro';
 import ResearchInterests from '../components/ResearchInterests.astro';
 import Publications from '../components/Publications.astro';
-import Awards from '../components/Awards.astro';
 import ResearchExperience from '../components/ResearchExperience.astro';
+import Projects from '../components/Projects.astro';
+import Employment from '../components/Employment.astro';
+import Skills from '../components/Skills.astro';
+import Education from '../components/Education.astro';
+import Awards from '../components/Awards.astro';
 import Service from '../components/Service.astro';
-import { profile } from '../data/profile';
+import Contact from '../components/Contact.astro';
 ---
 
 <Base>
 	<Hero />
 	<main>
 		<About />
-		<div class="container">
-			<Education />
+		<div class="container" id="research">
+			<DissertationFeature />
+			<ResearchInterests />
+			<Publications />
+			<ResearchExperience />
+		</div>
+		<div class="container" id="projects">
+			<Projects />
+		</div>
+		<div class="container" id="experience">
+			<Employment />
 			<Skills />
 		</div>
-		<div class="container"><Employment /></div>
-		<div class="container"><ResearchInterests /></div>
-		<div class="container">
-			<Publications />
+		<div class="container" id="education">
+			<Education />
 			<Awards />
-		</div>
-		<div class="container">
-			<ResearchExperience />
 			<Service />
 		</div>
 	</main>
-	<footer class="container">
-		<span>© {new Date().getFullYear()} {profile.name}</span>
-	</footer>
+	<Contact />
 </Base>

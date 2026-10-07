@@ -1,14 +1,23 @@
 ---
 import { profile } from '../data/profile';
+import { getPublishedProjects } from '../lib/projects';
 import Icon from './Icon.astro';
 
 const [firstName, ...rest] = profile.name.split(' ');
+const hasProjects = (await getPublishedProjects()).length > 0;
 ---
 
 <header class="container">
 	<div class="hero">
 		<h1 class="name"><strong>{firstName}</strong> {rest.join(' ')}, {profile.honorific}</h1>
 		<p class="job-title">{profile.title}</p>
+		<p class="lead">{profile.tagline}</p>
+		<div class="hero-actions">
+			<a class="button button-primary" href={profile.cvPath}>Download CV</a>
+			<a class="button" href="#research">Research</a>
+			{hasProjects && <a class="button" href="#projects">Projects</a>}
+			<a class="button" href="#experience">Experience</a>
+		</div>
 		<p class="email">
 			{
 				profile.emails.map((email, i) => (
@@ -27,6 +36,5 @@ const [firstName, ...rest] = profile.name.split(' ');
 				))
 			}
 		</p>
-		<p class="lead">{profile.lead}</p>
 	</div>
 </header>

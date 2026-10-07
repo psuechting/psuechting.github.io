@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+
+const [dissertation] = await getCollection('dissertation');
+---
+
+{
+	dissertation && (
+		<section class="sections">
+			<h2 class="section-title">Dissertation</h2>
+			<article class="feature-card">
+				<span class="feature-eyebrow">
+					{dissertation.data.institution} · {dissertation.data.conferred.getUTCFullYear()}
+				</span>
+				<h3 class="feature-title">
+					<a href="/research/dissertation/">{dissertation.data.title}</a>
+				</h3>
+				<p>{dissertation.data.summary}</p>
+				<a class="feature-link" href="/research/dissertation/">Read the summary →</a>
+			</article>
+		</section>
+	)
+}

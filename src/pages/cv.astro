@@ -1,0 +1,158 @@
+---
+// Printable CV built from the same data as the home page.
+// scripts/build-cv-pdf.mjs prints this page to /peter-suechting-cv.pdf after each build.
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { profile } from '../data/profile';
+import { formatRange } from '../lib/format';
+
+const byOrder = <T extends { data: { order: number } }>(a: T, b: T) => a.data.order - b.data.order;
+
+const education = (await getCollection('education')).sort((a, b) => b.data.year - a.data.year);
+const [dissertation] = await getCollection('dissertation');
+const publications = (await getCollection('publications')).sort((a, b) => b.data.year - a.data.year);
+const research = (await getCollection('research')).sort(byOrder);
+const work = (await getCollection('work')).sort((a, b) => b.data.start.localeCompare(a.data.start));
+const awards = (await getCollection('awards')).sort(byOrder);
+const service = (await getCollection('service')).sort(byOrder);
+const skills = (await getCollection('skills')).sort(byOrder);
+const interests = (await getCollection('interests')).sort(byOrder);
+---
+
+<Base title={`CV | ${profile.name}, ${profile.honorific}`} nav={false}>
+	<div class="cv-toolbar">
+		<a href="/">← Back to site</a>
+		<a class="button button-primary" href={profile.cvPath}>Download PDF</a>
+	</div>
+	<main class="cv">
+		<header class="cv-header">
+			<h1>{profile.name}, {profile.honorific}</h1>
+			<p>{profile.title}</p>
+			<p class="cv-contact">
+				{
+					[
+						...profile.emails.map((e) => e.address),
+						'psuechting.github.io',
+						...profile.social.map((s) => s.url.replace(/^https:\/\/(www\.)?/, '')),
+					].map((item, i) => (
+						<>
+							{i > 0 && ' · '}
+							<span>{item}</span>
+						</>
+					))
+				}
+			</p>
+		</header>
+
+		<section>
+			<h2>Education</h2>
+			{
+				education.map(({ data }) => (
+					<div class="cv-row">
+						<span class="cv-date">{data.year}</span>
+						<div>
+							<strong>{data.degree}</strong>, {data.institution}, {data.location}
+							{dissertation && data.degree.startsWith('Ph.D') && (
+								<div class="cv-detail">Dissertation: <em>{dissertation.data.title}</em></div>
+							)}
+						</div>
+					</div>
+				))
+			}
+		</section>
+
+		<section>
+			<h2>Publications</h2>
+			{
+				publications.map(({ data }) => (
+					<div class="cv-row">
+						<span class="cv-date">{data.year}</span>
+						<div>{data.citation.replace(/^Co-authored chapter:\s*/, '')} {data.venue}</div>
+					</div>
+				))
+			}
+		</section>
+
+		<section>
+			<h2>Research Experience</h2>
+			{
+				research.map(({ data }) => (
+					<div class="cv-row">
+						<span class="cv-date">{data.duration.replace(/^\+\s*/, '')}</span>
+						<div>
+							<strong>{data.role}</strong>, {data.department} (PI: {data.pi})
+							<ul>{data.projects.map((p) => <li>{p.name}</li>)}</ul>
+						</div>
+					</div>
+				))
+			}
+		</section>
+
+		<section>
+			<h2>Professional Experience</h2>
+			{
+				work.map(({ data }) => (
+					<div class="cv-row">
+						<span class="cv-date">{formatRange(data.start, data.end)}</span>
+						<div>
+							<strong>{data.title}</strong>, {data.employer}, {data.location}
+						</div>
+					</div>
+				))
+			}
+		</section>
+
+		<section>
+			<h2>Fellowships &amp; Awards</h2>
+			{
+				awards.map(({ data }) => (
+					<div class="cv-row">
+						<span class="cv-date">{data.years}</span>
+						<div>
+							<strong>{data.title}</strong>, {data.organization}
+						</div>
+					</div>
+				))
+			}
+		</section>
+
+		<section>
+			<h2>Service</h2>
+			{
+				service.map(({ data }) => (
+					<div class="cv-row">
+						<span class="cv-date">{data.duration.replace(/^\+\s*/, '')}</span>
+						<div>
+							<strong>{data.role}</strong>, {data.organization}
+						</div>
+					</div>
+				))
+			}
+		</section>
+
+		<section>
+			<h2>Skills</h2>
+			{
+				skills.map(({ data }) => (
+					<div class="cv-row">
+						<span class="cv-date">{data.years.replace(/^\+\s*/, '')}</span>
+						<div>
+							<strong>{data.title}</strong>: {data.items.join('; ')}
+						</div>
+					</div>
+				))
+			}
+		</section>
+
+		<section>
+			<h2>Research Interests</h2>
+			{
+				interests.map(({ data }) => (
+					<div class="cv-row cv-row-wide">
+						<strong>{data.topic}</strong>: {data.items.join('; ')}
+					</div>
+				))
+			}
+		</section>
+	</main>
+</Base>

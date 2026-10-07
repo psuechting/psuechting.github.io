@@ -3,7 +3,10 @@ export const profile = {
 	name: 'Peter Suechting',
 	honorific: 'Ph.D.',
 	title: 'Environmental Sciences, Studies & Policy · University of Oregon',
-	lead: 'energy transitions; climate policy (& implementation); social movements',
+	// One-sentence positioning statement shown under the name.
+	tagline:
+		'I study how the energy transition redistributes environmental burdens, and I build the data systems that organizers and climate organizations run on.',
+	cvPath: '/peter-suechting-cv.pdf',
 	description:
 		'Peter Suechting, Ph.D. — researcher, data systems builder, and analyst working on energy transitions, climate policy, and social movements.',
 	about:
