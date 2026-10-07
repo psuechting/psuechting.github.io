@@ -1,0 +1,29 @@
+---
+import { profile } from '../data/profile';
+import Icon from './Icon.astro';
+---
+
+<footer class="container site-footer" id="contact">
+	<h2 class="section-title">Contact</h2>
+	<ul class="contact-list">
+		{
+			profile.emails.map((email) => (
+				<li>
+					<span class="contact-label">{email.label}</span>
+					<a href={`mailto:${email.address}`}>{email.address}</a>
+				</li>
+			))
+		}
+		{
+			profile.social.map((link) => (
+				<li>
+					<span class="contact-label">{link.label}</span>
+					<a href={link.url} rel="me noopener" target="_blank">
+						<Icon name={link.platform} /> {link.url.replace(/^https:\/\/(www\.)?/, '')}
+					</a>
+				</li>
+			))
+		}
+	</ul>
+	<p class="copyright">© {new Date().getFullYear()} {profile.name}</p>
+</footer>

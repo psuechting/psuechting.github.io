@@ -97,4 +97,45 @@ const bio = defineCollection({
 	schema: z.object({ title: z.string() }),
 });
 
-export const collections = { work, education, skills, interests, publications, awards, research, service, bio };
+const dissertation = defineCollection({
+	loader: glob({ base: './src/content/dissertation', pattern: '*.md' }),
+	schema: z.object({
+		title: z.string(),
+		degree: z.string(),
+		institution: z.string(),
+		conferred: z.coerce.date(),
+		summary: z.string(),
+		// Link to the full text (e.g. UO Scholars' Bank) once it's available.
+		url: z.url().optional(),
+	}),
+});
+
+// Projects with `draft: true` are skipped everywhere until they're ready.
+const projects = defineCollection({
+	loader: glob({ base: './src/content/projects', pattern: '*.md' }),
+	schema: z.object({
+		title: z.string(),
+		summary: z.string(),
+		organization: z.string(),
+		role: z.string(),
+		years: z.string(),
+		tools: z.array(z.string()).default([]),
+		url: z.url().optional(),
+		order: z.number(),
+		draft: z.boolean().default(false),
+	}),
+});
+
+export const collections = {
+	work,
+	education,
+	skills,
+	interests,
+	publications,
+	awards,
+	research,
+	service,
+	bio,
+	dissertation,
+	projects,
+};

@@ -11,7 +11,8 @@
     "check": "astro check",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "build:cv": "node scripts/build-cv-pdf.mjs"
   },
   "allowScripts": {
     "esbuild": true
@@ -21,5 +22,8 @@
     "@astrojs/sitemap": "^3.7.4",
     "astro": "^7.3.6",
     "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0"
   }
 }
