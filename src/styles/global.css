@@ -548,6 +548,52 @@ button:focus-visible {
 	font-size: 15px;
 }
 
+.chapter-list {
+	list-style: none;
+	counter-reset: chapter 1; /* Chapter 1 is the Introduction */
+	display: grid;
+	gap: 16px;
+	margin-bottom: 16px;
+}
+
+.chapter {
+	counter-increment: chapter;
+	padding: 20px 24px;
+	background-color: var(--color-card-bg);
+	border-radius: var(--radius);
+}
+
+.chapter h3::before {
+	content: 'Chapter ' counter(chapter);
+	display: block;
+	font-family: var(--font-body);
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--color-accent);
+	margin-bottom: 4px;
+}
+
+.chapter-subtitle {
+	font-size: 14px;
+	color: var(--color-text-secondary);
+	margin-bottom: 10px;
+}
+
+.chapter p:last-child {
+	line-height: 1.7;
+}
+
+.data-list {
+	padding-left: 20px;
+	margin-bottom: 16px;
+}
+
+.data-list li {
+	margin-bottom: 4px;
+}
+
 .tag-list {
 	display: flex;
 	flex-wrap: wrap;

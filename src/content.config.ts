@@ -104,8 +104,12 @@ const dissertation = defineCollection({
 		degree: z.string(),
 		institution: z.string(),
 		conferred: z.coerce.date(),
+		// Short teaser for the home-page card.
 		summary: z.string(),
-		// Link to the full text (e.g. UO Scholars' Bank) once it's available.
+		committee: z.array(z.object({ name: z.string(), role: z.string().optional() })),
+		chapters: z.array(z.object({ title: z.string(), subtitle: z.string(), finding: z.string() })),
+		data: z.array(z.string()),
+		// Link to the full text (e.g. UO Scholars' Bank or ProQuest) once it's available.
 		url: z.url().optional(),
 	}),
 });
