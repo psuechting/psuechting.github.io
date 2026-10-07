@@ -536,6 +536,60 @@ button:focus-visible {
 	margin-bottom: 20px;
 }
 
+.prose h2 {
+	font-size: 26px;
+	margin: 40px 0 16px;
+}
+
+.prose ul {
+	padding-left: 20px;
+	margin-bottom: 20px;
+}
+
+.prose li {
+	margin-bottom: 6px;
+	line-height: 1.7;
+}
+
+/* Numbered step-by-step pipeline (used in project write-ups) */
+.prose .flow {
+	list-style: none;
+	counter-reset: step;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+	gap: 12px;
+	padding: 0;
+	margin: 24px 0 32px;
+}
+
+.prose .flow li {
+	counter-increment: step;
+	position: relative;
+	padding: 16px 18px;
+	margin: 0;
+	background-color: var(--color-card-bg);
+	border-top: 3px solid var(--color-accent);
+	border-radius: var(--radius);
+	font-size: 15px;
+	line-height: 1.55;
+}
+
+.prose .flow strong {
+	display: block;
+	font-family: var(--font-heading);
+	font-size: 18px;
+	margin-bottom: 4px;
+}
+
+.prose .flow strong::before {
+	content: counter(step) '. ';
+	color: var(--color-accent);
+}
+
+.prose .flow span {
+	color: var(--color-text-secondary);
+}
+
 .article .section-title {
 	margin-top: 32px;
 	margin-bottom: 20px;
