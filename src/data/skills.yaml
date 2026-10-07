@@ -1,0 +1,47 @@
+- id: research-design
+  order: 1
+  years: + 9 years
+  title: Social scientific research design
+  items:
+    - Literature review, contextualization & synthesis
+    - Concept mapping
+    - Hypothesis testing
+    - Data collection
+    - Quantitative & qualitative methodologies
+    - Nested analysis/multi-methodology
+
+- id: econometrics
+  order: 2
+  years: + 7 years
+  title: Econometric techniques & statistical programming
+  items:
+    - R/RStudio/Markdown & Latex
+    - Experiments
+    - Causal Inference
+    - Machine Learning
+    - Data Visualization
+
+- id: crm
+  order: 3
+  years: + 5 years
+  title: CRM design, management
+  items:
+    - AirTable
+    - Salesforce
+    - Salsa
+    - ActionNetwork
+    - Hustle
+    - Bespoke projects
+
+- id: enterprise-systems
+  order: 4
+  years: + 5 years
+  title: Enterprise Information Systems Development
+  items:
+    - Airtable
+    - Salesforce
+    - JavaScript
+    - Python
+    - Database design & architecture
+    - API integration
+    - Data systems for organizing & mission-driven organizations

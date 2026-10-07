@@ -1,0 +1,35 @@
+- id: lokey
+  order: 1
+  years: "AY '19/'20"
+  title: Lokey Science Award
+  organization: University of Oregon, Division of Graduate Studies
+  url: https://graduatestudies.uoregon.edu/funding/awards/lokey-graduate-science-awards
+  description: >-
+    Made possible by a generous donation of Mr. Lorry I. Lokey, the Lokey Graduate Science Awards aim
+    to help doctoral programs compete with AAU benchmark institutions in the recruitment of the top
+    students into their programs.
+
+- id: amherst-memorial
+  order: 2
+  years: "AY '19-'23"
+  title: Amherst Memorial Fellowship
+  organization: Amherst College
+  url: https://www.amherst.edu/academiclife/support/fellowships/amherst
+  description: >-
+    Amherst College Fellowships are a collection of nearly 20 different funds of varying sizes
+    established over the past 150 years by generous alumni donors of Amherst College. They are devoted
+    to supporting AC seniors and alumni who are pursuing either full-time, degree-granting graduate
+    study or independent training in the performing arts.
+
+- id: bastiat
+  order: 3
+  years: "AY '22/'23"
+  title: Frédéric Bastiat Fellowship
+  organization: Mercatus Center @ George Mason University
+  url: https://www.mercatus.org/students/frederic-bastiat-fellowship
+  description: >-
+    The Frédéric Bastiat Fellowship is a one-year, competitive fellowship program awarded to graduate
+    students attending master's, juris doctoral, and doctoral programs in a variety of fields including
+    economics, law, political science, and public policy. The aim of this fellowship is to introduce
+    students to the Austrian, Virginia, and Bloomington schools of political economy as academic
+    foundations for contemporary policy analysis, policy-relevant academic research, and other applied topics.

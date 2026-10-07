@@ -1,0 +1,32 @@
+---
+import { profile } from '../data/profile';
+import Icon from './Icon.astro';
+
+const [firstName, ...rest] = profile.name.split(' ');
+---
+
+<header class="container">
+	<div class="hero">
+		<h1 class="name"><strong>{firstName}</strong> {rest.join(' ')}, {profile.honorific}</h1>
+		<p class="job-title">{profile.title}</p>
+		<p class="email">
+			{
+				profile.emails.map((email, i) => (
+					<>
+						{i > 0 && ' | '}
+						<a href={`mailto:${email.address}`} title={`${email.label} inquiries`}>{email.address}</a>
+					</>
+				))
+			}
+			{' | '}
+			{
+				profile.social.map((link) => (
+					<a class="social" href={link.url} aria-label={link.label} rel="me noopener" target="_blank">
+						<Icon name={link.platform} />
+					</a>
+				))
+			}
+		</p>
+		<p class="lead">{profile.lead}</p>
+	</div>
+</header>

@@ -1,0 +1,18 @@
+---
+import { getCollection } from 'astro:content';
+import ListCard from './ListCard.astro';
+
+const service = (await getCollection('service')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<section class="sections">
+	<h2 class="section-title">Professional Service</h2>
+	{
+		service.map(({ data }) => (
+			<ListCard label={data.duration}>
+				<h3>{data.organization}</h3>
+				<span>{data.role}</span>
+			</ListCard>
+		))
+	}
+</section>

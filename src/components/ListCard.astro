@@ -1,0 +1,16 @@
+---
+// Shared card layout: a short label (years, dates) on the left, details on the right.
+interface Props {
+	label: string | number;
+	class?: string;
+}
+
+const { label, class: className } = Astro.props;
+---
+
+<div class:list={['list-card', className]}>
+	<span class="exp">{label}</span>
+	<div>
+		<slot />
+	</div>
+</div>

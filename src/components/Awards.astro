@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import ListCard from './ListCard.astro';
+
+const awards = (await getCollection('awards')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<section class="sections">
+	<h2 class="section-title">Fellowships & Awards</h2>
+	{
+		awards.map(({ data }) => (
+			<ListCard label={data.years} class="awards">
+				<h3><a class="link" href={data.url} target="_blank" rel="noopener">{data.title}</a></h3>
+				<span>{data.organization}</span>
+				<div class="award-description">
+					<p class="desc-text">{data.description}</p>
+				</div>
+			</ListCard>
+		))
+	}
+</section>

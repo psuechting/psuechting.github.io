@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content';
+
+const interests = (await getCollection('interests')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<section class="card-container">
+	<h2 class="section-title">Research interests & expertise</h2>
+	<div class="cards">
+		{
+			interests.map(({ data }) => (
+				<article class="card">
+					<h3 class="card-title">{data.topic}</h3>
+					<p class="card-meta">{data.items.join('; ')}</p>
+				</article>
+			))
+		}
+	</div>
+</section>

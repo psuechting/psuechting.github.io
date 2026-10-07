@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import { formatRange } from '../lib/format';
+
+const jobs = (await getCollection('work')).sort((a, b) => b.data.start.localeCompare(a.data.start));
+---
+
+<section class="sections employment-section">
+	<h2 class="section-title">Professional employment</h2>
+	<ol class="vertical-timeline">
+		{
+			jobs.map(({ data }) => (
+				<li class="employment-card">
+					<div class="timeline-dot" />
+					<div class="timeline-content">
+						<span class="employment-date">{formatRange(data.start, data.end)}</span>
+						<h3 class="employment-title">{data.title}</h3>
+						<a href={data.employerUrl} class="employment-employer" target="_blank" rel="noopener">
+							{data.employer}
+						</a>
+						<span class="employment-location">{data.location}</span>
+						<p class="employment-description">{data.description}</p>
+					</div>
+				</li>
+			))
+		}
+	</ol>
+</section>
