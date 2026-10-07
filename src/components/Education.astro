@@ -1,0 +1,18 @@
+---
+import { getCollection } from 'astro:content';
+import ListCard from './ListCard.astro';
+
+const degrees = (await getCollection('education')).sort((a, b) => b.data.year - a.data.year);
+---
+
+<section class="sections">
+	<h2 class="section-title">Advanced Degrees</h2>
+	{
+		degrees.map(({ data }) => (
+			<ListCard label={data.year}>
+				<h3>{data.degree}</h3>
+				<span>{data.institution} | {data.location}</span>
+			</ListCard>
+		))
+	}
+</section>

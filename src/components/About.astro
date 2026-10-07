@@ -1,0 +1,48 @@
+---
+import { getEntry, render } from 'astro:content';
+import { profile } from '../data/profile';
+
+const bio = await getEntry('bio', 'full');
+if (!bio) throw new Error('Missing src/content/bio/full.md');
+const { Content } = await render(bio);
+---
+
+<section class="container">
+	<div class="hero about-me">
+		<h2 class="section-title">About Me</h2>
+		<p>{profile.about}</p>
+		<button type="button" class="read-more-bio" aria-expanded="false" aria-controls="expanded-bio-container">
+			Read full bio
+		</button>
+	</div>
+</section>
+
+<section class="container" id="expanded-bio-container" hidden>
+	<div class="fold-line" role="presentation"></div>
+	<div class="expanded-bio-inner">
+		<h2 class="section-title">{bio.data.title}</h2>
+		<div class="bio-text"><Content /></div>
+		<button type="button" id="close-expanded-bio" class="close-bio-btn">Close ×</button>
+	</div>
+</section>
+
+<script>
+	const container = document.getElementById('expanded-bio-container')!;
+	const openBtn = document.querySelector<HTMLButtonElement>('.read-more-bio')!;
+	const closeBtn = document.getElementById('close-expanded-bio')!;
+	const foldLine = container.querySelector('.fold-line')!;
+
+	function setOpen(open: boolean) {
+		container.hidden = !open;
+		openBtn.setAttribute('aria-expanded', String(open));
+		if (open) container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		else openBtn.focus();
+	}
+
+	openBtn.addEventListener('click', () => setOpen(openBtn.getAttribute('aria-expanded') !== 'true'));
+	closeBtn.addEventListener('click', () => setOpen(false));
+	foldLine.addEventListener('click', () => setOpen(false));
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape' && !container.hidden) setOpen(false);
+	});
+</script>

@@ -1,0 +1,23 @@
+- id: umd-hadden
+  order: 1
+  duration: + 2 years
+  department: UMD Dept. of Public Policy & Government
+  pi: Dr. Jennifer Hadden
+  role: Research Assistant
+  projects:
+    - name: Understanding the social reception of energy in the developing world
+      url: https://www.nsf.gov/awardsearch/showAward?AWD_ID=1949486&HistoricalAwards=false
+    - name: >-
+        Transition, hedge, or resist? Understanding political and economic behavior toward
+        decarbonization in the oil and gas industry
+      url: https://doi.org/10.1080/09692290.2021.1946708
+
+- id: uo-kauffman
+  order: 2
+  duration: + 6 months
+  department: UO Dept. of Political Science
+  pi: Dr. Craig Kauffman
+  role: Research Assistant
+  projects:
+    - name: "The Politics of Rights of Nature: Strategies for Building a More Sustainable Future"
+      url: https://direct.mit.edu/books/oa-monograph/5158/The-Politics-of-Rights-of-NatureStrategies-for

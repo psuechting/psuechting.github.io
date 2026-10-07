@@ -1,0 +1,45 @@
+---
+import '../styles/global.css';
+import { profile } from '../data/profile';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { title = `${profile.name}, ${profile.honorific}`, description = profile.description } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="author" content={profile.name} />
+		<link rel="canonical" href={canonical} />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+
+		<meta property="og:type" content="profile" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:site_name" content={profile.name} />
+		<meta property="profile:first_name" content="Peter" />
+		<meta property="profile:last_name" content="Suechting" />
+		<meta name="twitter:card" content="summary" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Inter:wght@300;400;600&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>

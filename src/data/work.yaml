@@ -1,0 +1,77 @@
+# Professional employment. Sorted newest-first by `start` on the page.
+# `end`: YYYY-MM, or `present` for a current role. Leave it out if unknown (only the start date shows).
+- id: aft-data-specialist
+  employer: AFT
+  employerUrl: https://or.aft.org/
+  title: Data Specialist
+  start: 2025-10
+  end: present
+  location: Eugene, OR
+  description: >-
+    Responsible for the construction, implementation, and administration of individualized local
+    databases customized to local political organizing contexts. Responsible for the design of
+    information systems for membership management, organizing, power-building, and bargaining unit analytics.
+
+- id: aft-database-developer
+  employer: AFT
+  employerUrl: https://or.aft.org/
+  title: Database Developer
+  start: 2024-03
+  end: 2025-10
+  location: Remote
+  description: >-
+    Informational systems design for membership management, organizing, and power-building and
+    bargaining unit analytics.
+
+- id: cfs-funding-research-analyst
+  employer: Climate Finance Solutions
+  employerUrl: https://www.climatefinancesolutions.com/
+  title: Funding Research Analyst
+  start: 2023-10
+  location: Remote
+  description: >-
+    Climate Finance Solutions (CFS) is a global consultancy that helps companies and organizations
+    secure large-scale grant funding to develop and scale their high-impact climate solutions.
+
+- id: uo-phd
+  employer: UO Political Science & Environmental Studies
+  employerUrl: https://socialsciences.uoregon.edu/envs
+  title: Ph.D. Candidate
+  start: 2019-09
+  end: 2026-08
+  location: Eugene, OR
+  description: >-
+    Founded in 1976, the Environmental Studies program laid the early foundation for the UO's strong
+    track record in environmental research and teaching; now, with 26 core faculty and more than 100
+    participating faculty from 30 campus departments and programs, it sets the standard in
+    interdisciplinary dialogue and collaboration.
+
+- id: corporate-accountability
+  employer: Corporate Accountability
+  employerUrl: https://www.corporateaccountability.org
+  title: Data & Analysis Manager
+  start: 2017-02
+  location: Boston, MA
+  description: >-
+    Corporate Accountability wages strategic campaigns that compel transnational corporations, and
+    the governments that do their bidding, to stop destroying our health, human rights, democracy, and planet.
+
+- id: nextgen-climate-nh
+  employer: NextGen Climate NH
+  employerUrl: https://www.nextgenclimate.org
+  title: State Operations Director
+  start: 2016-08
+  location: Manchester, NH
+  description: >-
+    NextGen Climate acts politically to prevent climate disaster and promote prosperity for every American.
+
+- id: community-voters-project
+  employer: Community Voters Project
+  employerUrl: https://www.cfpir.org/community-voters-project
+  title: Canvass Office Director
+  start: 2016-04
+  location: Pueblo, CO
+  description: >-
+    Community Voters Project is helping to increase civic engagement among underserved and
+    underrepresented communities, focusing primarily on African Americans, Latinos, and in some
+    locations, young people, through non-partner voter registration and GOTV campaigns.

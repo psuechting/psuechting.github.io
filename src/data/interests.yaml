@@ -1,0 +1,36 @@
+- id: energy-transitions
+  order: 1
+  topic: Energy transitions
+  items:
+    - Environmental history
+    - Labor history
+    - History of capitalism
+    - Science & technology studies (STS)
+    - Sociotechnical regimes
+    - Petro-states
+    - Carbon majors
+    - State-Capital-Energy nexus
+    - Critical development studies
+
+- id: climate-policy
+  order: 2
+  topic: Climate policy
+  items:
+    - Industrial & regulatory policy
+    - U.S. electricity grid reform & permitting reform
+    - U.S.-China relations
+    - BRICS+/non-aligned countries
+    - Climate regime complex (UNFCCC)
+    - Earth system governance in the Anthropocene
+
+- id: social-movements
+  order: 3
+  topic: Social movements
+  items:
+    - Environmental grievance
+    - Transnational climate justice
+    - Networks
+    - Social acceptability
+    - Framing effects
+    - NIMBY/ YIMBY
+    - Rural land-use, transmission & pipeline politics

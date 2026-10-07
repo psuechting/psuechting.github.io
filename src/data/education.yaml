@@ -1,0 +1,18 @@
+# Degrees. Sorted newest-first by `year` on the page.
+- id: phd
+  degree: Ph.D., Environmental Sciences, Studies, & Policy
+  institution: University of Oregon
+  location: Eugene, OR
+  year: 2026
+
+- id: ms
+  degree: M.S., Political Science
+  institution: University of Oregon
+  location: Eugene, OR
+  year: 2022
+
+- id: ba
+  degree: B.A., Environmental Studies
+  institution: Amherst College
+  location: Amherst, MA
+  year: 2015

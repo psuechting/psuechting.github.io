@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import ListCard from './ListCard.astro';
+
+const positions = (await getCollection('research')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<section class="sections">
+	<h2 class="section-title">Research experience</h2>
+	{
+		positions.map(({ data }) => (
+			<ListCard label={data.duration}>
+				<h3>{data.department}</h3>
+				<span>{data.role} | PI: {data.pi}</span>
+				<span class="projects-label">Projects:</span>
+				<ol class="projects">
+					{data.projects.map((project) => (
+						<li><a href={project.url} target="_blank" rel="noopener">{project.name}</a></li>
+					))}
+				</ol>
+			</ListCard>
+		))
+	}
+</section>
