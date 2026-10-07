@@ -9,6 +9,7 @@ const { Content } = await render(dissertation);
 const { data } = dissertation;
 const year = data.conferred.getUTCFullYear();
 const conferred = data.conferred.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+const committee = data.committee.map((m) => (m.role ? `${m.name} (${m.role})` : m.name)).join(', ');
 ---
 
 <Base title={`${data.title} | ${profile.name}`} description={data.summary}>
@@ -16,9 +17,31 @@ const conferred = data.conferred.toLocaleDateString('en-US', { month: 'long', da
 		<a class="back-link" href="/#research">← Research</a>
 		<span class="feature-eyebrow">Doctoral dissertation</span>
 		<h1 class="article-title">{data.title}</h1>
-		<p class="article-meta">{data.degree} · {data.institution} · Conferred {conferred}</p>
-		<div class="prose"><Content /></div>
+		<p class="article-meta">
+			{data.degree} · {data.institution} · Defended {conferred}<br />
+			Committee: {committee}
+		</p>
 		{data.url && <p><a class="button button-primary" href={data.url}>Read the full dissertation</a></p>}
+
+		<h2 class="section-title">Abstract</h2>
+		<div class="prose"><Content /></div>
+
+		<h2 class="section-title">Chapters</h2>
+		<ol class="chapter-list">
+			{
+				data.chapters.map((chapter) => (
+					<li class="chapter">
+						<h3>{chapter.title}</h3>
+						<p class="chapter-subtitle">{chapter.subtitle.replace('NOx', 'NOₓ')}</p>
+						<p>{chapter.finding}</p>
+					</li>
+				))
+			}
+		</ol>
+
+		<h2 class="section-title">Data</h2>
+		<ul class="data-list">{data.data.map((source) => <li>{source}</li>)}</ul>
+
 		<h2 class="section-title">Cite</h2>
 		<p class="citation">
 			Suechting, P. ({year}). <em>{data.title}</em> [Doctoral dissertation, {data.institution}].
