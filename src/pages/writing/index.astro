@@ -1,0 +1,21 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostList from '../../components/PostList.astro';
+import { profile } from '../../data/profile';
+import { getPublishedPosts, getTags } from '../../lib/posts';
+
+const posts = await getPublishedPosts();
+const tags = await getTags();
+---
+
+<Base title={`Writing | ${profile.name}`} description={`Writing by ${profile.name} on energy transitions, climate policy, and data systems for mission-driven work.`}>
+	<main class="container article">
+		<h1 class="article-title">Writing</h1>
+		<p class="article-meta">
+			<a href="/rss.xml">RSS feed</a>
+			{tags.size > 0 && ' · '}
+			{[...tags.keys()].map((tag, i) => (<>{i > 0 && ', '}<a href={`/writing/tags/${tag}/`}>{tag}</a></>))}
+		</p>
+		{posts.length > 0 ? <PostList posts={posts} /> : <p>Nothing published yet.</p>}
+	</main>
+</Base>
