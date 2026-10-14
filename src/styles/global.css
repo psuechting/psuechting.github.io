@@ -309,100 +309,132 @@ a:hover {
 	line-height: 1.5;
 }
 
-/* Employment Section - Vertical Timeline */
+/* Employment timeline: a date · rail · content grid. The rail line and dots are
+   placed by the same column variables, so the geometry has no hand-tuned offsets. */
 .employment-section {
 	padding: 40px 0;
 }
 
-.vertical-timeline {
+.timeline {
+	--tl-date: 150px;
+	--tl-rail: 16px;
+	--tl-gap: 20px;
+	--tl-line: calc(var(--tl-date) + var(--tl-gap) + var(--tl-rail) / 2);
 	list-style: none;
 	position: relative;
-	padding-left: 32px;
 }
 
-.vertical-timeline::before {
+.timeline::before {
 	content: '';
 	position: absolute;
-	left: 7px;
-	top: 8px;
-	bottom: 8px;
+	top: 10px;
+	bottom: 10px;
+	left: var(--tl-line);
 	width: 2px;
-	background: linear-gradient(to bottom, var(--color-accent), var(--color-timeline-line));
+	transform: translateX(-50%);
+	background-color: var(--color-timeline-line);
 }
 
-.employment-card {
-	position: relative;
-	padding-bottom: 32px;
-	padding-left: 24px;
+.tl-entry {
+	margin-bottom: 36px;
 }
 
-.employment-card:last-child {
-	padding-bottom: 0;
+.tl-entry:last-child {
+	margin-bottom: 0;
 }
 
-.timeline-dot {
-	position: absolute;
-	left: -28px;
-	top: 6px;
-	width: 14px;
-	height: 14px;
-	background-color: var(--color-accent);
-	border-radius: 50%;
-	border: 3px solid var(--color-bg);
-	box-shadow: 0 0 0 2px var(--color-accent);
+.tl-row {
+	display: grid;
+	grid-template-columns: var(--tl-date) var(--tl-rail) minmax(0, 1fr);
+	column-gap: var(--tl-gap);
+	align-items: baseline;
 }
 
-.timeline-content {
-	background-color: var(--color-card-bg);
-	padding: 20px 24px;
-	border-radius: var(--radius);
-	transition: transform var(--transition), box-shadow var(--transition);
-}
-
-.timeline-content:hover {
-	transform: translateX(4px);
-	box-shadow: 0 4px 12px var(--color-shadow);
-}
-
-.employment-date {
-	display: block;
+.tl-date {
 	font-size: 13px;
 	font-weight: 600;
+	letter-spacing: 0.02em;
+	text-align: right;
 	color: var(--color-accent);
-	margin-bottom: 4px;
+	white-space: nowrap;
 }
 
-.employment-title {
+.tl-role .tl-date {
+	color: var(--color-text-secondary);
+}
+
+.tl-rail {
+	position: relative;
+	align-self: stretch;
+}
+
+.tl-dot {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 12px;
+	height: 12px;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	border: 2px solid var(--color-accent);
+	background-color: var(--color-bg);
+}
+
+.tl-current .tl-dot {
+	background-color: var(--color-accent);
+}
+
+.tl-head .tl-rail {
+	min-height: 1.4em;
+}
+
+.tl-employer {
+	font-size: 20px;
+	font-weight: 600;
+	margin: 0;
+}
+
+.tl-employer a {
+	color: var(--color-text);
+}
+
+.tl-employer a:hover {
+	color: var(--color-accent);
+}
+
+.tl-role {
+	margin-top: 8px;
+}
+
+.tl-body {
+	padding-bottom: 4px;
+}
+
+.tl-title {
 	font-family: var(--font-heading);
-	font-size: 18px;
+	font-size: 17px;
 	font-weight: 600;
 	color: var(--color-text);
-	margin-bottom: 4px;
 }
 
-.employment-employer {
-	display: inline-block;
-	font-size: 15px;
-	font-weight: 500;
-	color: var(--color-text);
-	margin-right: 8px;
-	transition: color var(--transition);
-}
-
-.employment-employer:hover {
-	color: var(--color-accent);
-}
-
-.employment-location {
+.tl-location {
+	font-family: var(--font-body);
 	font-size: 14px;
+	font-weight: 400;
 	color: var(--color-text-secondary);
+	margin-left: 8px;
 }
 
-.employment-description {
-	margin-top: 12px;
+.tl-location::before {
+	content: '· ';
+}
+
+.tl-description {
+	margin-top: 4px;
+	max-width: 640px;
 	font-size: 14px;
-	color: var(--color-text-secondary);
 	line-height: 1.6;
+	color: var(--color-text-secondary);
 }
 
 .award-details {
@@ -1087,6 +1119,56 @@ a.tag:hover {
 	
 	.list-card .exp {
 		width: auto;
+	}
+
+	.timeline {
+		--tl-date: 0px;
+		--tl-gap: 14px;
+		--tl-line: calc(var(--tl-rail) / 2);
+	}
+
+	.tl-row {
+		grid-template-columns: var(--tl-rail) minmax(0, 1fr);
+	}
+
+	.tl-row .tl-date {
+		grid-column: 2;
+		text-align: left;
+		margin-bottom: 2px;
+	}
+
+	.tl-row .tl-date:empty {
+		display: none;
+	}
+
+	.tl-row .tl-rail {
+		grid-column: 1;
+		grid-row: 1 / span 2;
+	}
+
+	/* The head rail spans only the employer row, and the dot sits on the first line
+	   (half the 20px heading's line box), so a wrapped name doesn't pull it down. */
+	.tl-head .tl-rail {
+		grid-row: 2;
+		min-height: 0;
+	}
+
+	.tl-head .tl-dot {
+		top: 13px;
+	}
+
+	.tl-employer,
+	.tl-body {
+		grid-column: 2;
+	}
+
+	.tl-location {
+		display: block;
+		margin-left: 0;
+	}
+
+	.tl-location::before {
+		content: '';
 	}
 
 	.site-nav-name {
