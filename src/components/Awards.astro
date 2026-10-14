@@ -12,9 +12,10 @@ const awards = (await getCollection('awards')).sort((a, b) => a.data.order - b.d
 			<ListCard label={data.years} class="awards">
 				<h3><a class="link" href={data.url} target="_blank" rel="noopener">{data.title}</a></h3>
 				<span>{data.organization}</span>
-				<div class="award-description">
+				<details class="award-details">
+					<summary>About this award</summary>
 					<p class="desc-text">{data.description}</p>
-				</div>
+				</details>
 			</ListCard>
 		))
 	}
