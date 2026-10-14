@@ -42,3 +42,16 @@ I designed and built the platform's information architecture in Airtable, replac
 ## Who uses it
 
 Climate tech entrepreneurs and established organizations in climate-related sectors that are seeking R&D funding. The platform has since evolved into a commercial product offered by [Climate Finance Solutions](https://www.climatefinancesolutions.com/).
+
+## Outcome
+
+The platform is the research engine behind CFS's grant-writing practice. The firm's published track record, across all of its services:
+
+<ul class="stats">
+	<li><strong>$1.8 billion</strong><span>grant funding secured</span></li>
+	<li><strong>€800 million</strong><span>EU funding secured by the CFS team</span></li>
+	<li><strong>$400 million</strong><span>post-award grant management</span></li>
+	<li><strong>89%</strong><span>success rate ($ awarded vs. pursued)</span></li>
+</ul>
+
+<p class="source">Figures as published on <a href="https://www.climatefinancesolutions.com/" target="_blank" rel="noopener">climatefinancesolutions.com</a>.</p>

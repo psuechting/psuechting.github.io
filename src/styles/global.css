@@ -641,6 +641,45 @@ button:focus-visible {
 }
 
 /* Numbered step-by-step pipeline (used in project write-ups) */
+/* Stat tiles (used in project write-ups) */
+.prose .stats {
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+	gap: 12px;
+	padding: 0;
+	margin: 24px 0 12px;
+}
+
+.prose .stats li {
+	margin: 0;
+	padding: 18px;
+	background-color: var(--color-card-bg);
+	border-radius: var(--radius);
+	text-align: center;
+	line-height: 1.4;
+}
+
+.prose .stats strong {
+	display: block;
+	font-family: var(--font-heading);
+	font-size: 24px;
+	white-space: nowrap;
+	font-weight: 600;
+	color: var(--color-accent);
+	margin-bottom: 4px;
+}
+
+.prose .stats span {
+	font-size: 14px;
+	color: var(--color-text-secondary);
+}
+
+.prose .source {
+	font-size: 13px;
+	color: var(--color-text-secondary);
+}
+
 .prose .flow {
 	list-style: none;
 	counter-reset: step;
@@ -947,11 +986,18 @@ button:focus-visible {
 	}
 
 	.site-nav ul {
-		gap: 14px;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 4px 14px;
+		padding: 6px 0;
 	}
 
 	.site-nav ul a {
 		font-size: 14px;
+	}
+
+	[id] {
+		scroll-margin-top: 96px;
 	}
 
 	.feature-card {
