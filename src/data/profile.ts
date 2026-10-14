@@ -18,5 +18,9 @@ export const profile = {
 	social: [
 		{ platform: 'linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/in/peter-suechting-05a738a5' },
 		{ platform: 'github', label: 'GitHub', url: 'https://github.com/psuechting' },
+		{ platform: 'orcid', label: 'ORCID', url: 'https://orcid.org/0000-0002-2703-2796' },
 	],
+	// Optional free-text addition to the "Now" line in the header. Current roles are
+	// listed automatically from work.yaml (entries with `end: present`).
+	nowNote: '',
 } as const;
