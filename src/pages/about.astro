@@ -1,0 +1,22 @@
+---
+import { getEntry, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { profile } from '../data/profile';
+
+const bio = await getEntry('bio', 'full');
+if (!bio) throw new Error('Missing src/content/bio/full.md');
+const { Content } = await render(bio);
+---
+
+<Base title={`About | ${profile.name}`} description={profile.about}>
+	<main class="container article">
+		<a class="back-link" href="/">← Home</a>
+		<h1 class="article-title">{bio.data.title}</h1>
+		<p class="article-meta">{profile.title}</p>
+		<div class="prose"><Content /></div>
+		<p class="hero-actions">
+			<a class="button button-primary" href={profile.cvPath}>Download CV</a>
+			<a class="button" href="/#contact">Contact</a>
+		</p>
+	</main>
+</Base>
