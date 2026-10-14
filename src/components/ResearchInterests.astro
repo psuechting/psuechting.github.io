@@ -4,15 +4,15 @@ import { getCollection } from 'astro:content';
 const interests = (await getCollection('interests')).sort((a, b) => a.data.order - b.data.order);
 ---
 
-<section class="card-container">
+<section class="sections">
 	<h2 class="section-title">Research interests & expertise</h2>
-	<div class="cards">
+	<div class="keyword-groups keyword-groups-3">
 		{
 			interests.map(({ data }) => (
-				<article class="card">
-					<h3 class="card-title">{data.topic}</h3>
-					<p class="card-meta">{data.items.join('; ')}</p>
-				</article>
+				<div class="keyword-group">
+					<h3>{data.topic}</h3>
+					<ul class="chips">{data.items.map((item) => <li class="tag">{item}</li>)}</ul>
+				</div>
 			))
 		}
 	</div>

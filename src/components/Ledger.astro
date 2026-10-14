@@ -1,0 +1,14 @@
+---
+// A CV-style row: short label (year, duration) on the left, content on the right.
+// Rows are separated by hairlines, not boxes. Wrap rows in <ol class="ledger">.
+interface Props {
+	label: string | number;
+}
+---
+
+<li class="ledger-row">
+	<span class="ledger-label">{Astro.props.label}</span>
+	<div class="ledger-body">
+		<slot />
+	</div>
+</li>

@@ -1,18 +1,20 @@
 ---
 import { getCollection } from 'astro:content';
-import ListCard from './ListCard.astro';
+import Ledger from './Ledger.astro';
 
 const service = (await getCollection('service')).sort((a, b) => a.data.order - b.data.order);
 ---
 
 <section class="sections">
 	<h2 class="section-title">Professional Service</h2>
-	{
-		service.map(({ data }) => (
-			<ListCard label={data.duration}>
-				<h3>{data.organization}</h3>
-				<span>{data.role}</span>
-			</ListCard>
-		))
-	}
+	<ol class="ledger">
+		{
+			service.map(({ data }) => (
+				<Ledger label={data.duration}>
+					<h3>{data.organization}</h3>
+					<span class="ledger-meta">{data.role}</span>
+				</Ledger>
+			))
+		}
+	</ol>
 </section>

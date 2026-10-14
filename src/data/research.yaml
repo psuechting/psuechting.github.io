@@ -1,6 +1,6 @@
 - id: umd-hadden
   order: 1
-  duration: + 2 years
+  duration: 2+ years
   department: UMD Dept. of Public Policy & Government
   pi: Dr. Jennifer Hadden
   role: Research Assistant
@@ -14,7 +14,7 @@
 
 - id: uo-kauffman
   order: 2
-  duration: + 6 months
+  duration: 6+ months
   department: UO Dept. of Political Science
   pi: Dr. Craig Kauffman
   role: Research Assistant
