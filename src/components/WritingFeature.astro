@@ -1,0 +1,16 @@
+---
+import { getPublishedPosts } from '../lib/posts';
+import PostList from './PostList.astro';
+
+const posts = (await getPublishedPosts()).slice(0, 3);
+---
+
+{
+	posts.length > 0 && (
+		<section class="sections">
+			<h2 class="section-title">Writing</h2>
+			<PostList posts={posts} />
+			<a class="feature-link" href="/writing/">All posts →</a>
+		</section>
+	)
+}

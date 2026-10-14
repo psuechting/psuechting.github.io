@@ -12,6 +12,7 @@ Most content is plain data — edit these files, no code required:
 | Full bio | `src/content/bio/full.md` |
 | Dissertation (home page card + `/research/dissertation/`) | `src/content/dissertation/full-green-ahead.md` |
 | Projects (one Markdown file each; `draft: true` hides it) | `src/content/projects/` |
+| Writing (one Markdown file per post; `draft: true` hides it) | `src/content/posts/` |
 | Jobs (`end: present` for a current role) | `src/data/work.yaml` |
 | Degrees | `src/data/education.yaml` |
 | Skills | `src/data/skills.yaml` |
@@ -20,6 +21,8 @@ Most content is plain data — edit these files, no code required:
 | Fellowships & awards | `src/data/awards.yaml` |
 | Research experience | `src/data/research.yaml` |
 | Professional service | `src/data/service.yaml` |
+
+To write a post, copy `src/content/posts/hello.md`, rename it (the filename is the URL), fill in the front matter, and remove `draft: true`. The Writing section, nav link, tag pages, and RSS feed (`/rss.xml`) all appear automatically once at least one post is published.
 
 Every entry is checked against the schema in `src/content.config.ts` when the site builds, so a typo in a field name stops the build with an error instead of silently breaking the page.
 

@@ -130,7 +130,22 @@ const projects = defineCollection({
 	}),
 });
 
+// Writing. One Markdown file per post in src/content/posts; the filename is the URL slug.
+// Posts with `draft: true` are skipped everywhere until they're ready.
+const posts = defineCollection({
+	loader: glob({ base: './src/content/posts', pattern: '*.md' }),
+	schema: z.object({
+		title: z.string(),
+		description: z.string(),
+		date: z.coerce.date(),
+		updated: z.coerce.date().optional(),
+		tags: z.array(z.string()).default([]),
+		draft: z.boolean().default(false),
+	}),
+});
+
 export const collections = {
+	posts,
 	work,
 	education,
 	skills,
