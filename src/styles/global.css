@@ -210,6 +210,7 @@ a:hover {
 .about-me p {
 	max-width: 800px;
 	line-height: 1.7;
+	margin-bottom: 12px;
 }
 
 .sections {
@@ -1294,126 +1295,6 @@ a.tag:hover {
 	animation-delay: 0.1s;
 }
 
-/* Expanded Bio - In-flow reveal */
-.read-more-bio {
-	display: inline-block;
-	margin-top: 12px;
-	padding: 0;
-	border: none;
-	background: none;
-	font: inherit;
-	font-size: 15px;
-	color: var(--color-accent);
-	cursor: pointer;
-	text-decoration: underline;
-	transition: color var(--transition);
-}
-
-.read-more-bio:hover {
-	color: var(--color-text);
-}
-
-#expanded-bio-container {
-	overflow: hidden;
-}
-
-#expanded-bio-container:not([hidden]) {
-	display: block;
-	animation: foldReveal 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-}
-
-@keyframes foldReveal {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
-}
-
-.fold-line {
-	position: relative;
-	height: 20px;
-	margin: 16px 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
-	transition: opacity var(--transition);
-}
-
-.fold-line:hover {
-	opacity: 0.7;
-}
-
-.fold-line::before {
-	content: '';
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 50%;
-	height: 1px;
-	background: linear-gradient(90deg, 
-		transparent 0%, 
-		var(--color-timeline-line) 15%,
-		var(--color-text-secondary) 50%,
-		var(--color-timeline-line) 85%,
-		transparent 100%
-	);
-}
-
-.fold-line::after {
-	content: '❯❯';
-	position: relative;
-	background-color: var(--color-bg);
-	padding: 0 12px;
-	font-size: 10px;
-	color: var(--color-text-secondary);
-	letter-spacing: 4px;
-	font-family: monospace;
-}
-
-.expanded-bio-inner {
-	padding: 0 0 40px;
-}
-
-.expanded-bio-inner .bio-text p {
-	font-size: 16px;
-	line-height: 1.8;
-	color: var(--color-text);
-	margin-bottom: 20px;
-	max-width: 800px;
-}
-
-.expanded-bio-inner .section-title {
-	margin-bottom: 24px;
-}
-
-/* Updated close button for in-flow */
-#expanded-bio-container .close-bio-btn {
-	display: inline-block;
-	position: relative;
-	top: auto;
-	right: auto;
-	width: auto;
-	height: auto;
-	border: none;
-	background: none;
-	color: var(--color-accent);
-	font-size: 14px;
-	font-family: var(--font-body);
-	cursor: pointer;
-	padding: 8px 16px;
-	margin-top: 8px;
-	border-radius: 4px;
-	transition: background-color var(--transition), color var(--transition);
-}
-
-#expanded-bio-container .close-bio-btn:hover {
-	background-color: var(--color-card-bg);
-	color: var(--color-text);
-	transform: none;
-}
 
 @media (prefers-reduced-motion: reduce) {
 	*, *::before, *::after {

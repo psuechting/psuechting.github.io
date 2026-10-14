@@ -6,6 +6,7 @@ import { getPublishedPosts } from '../lib/posts';
 const hasProjects = (await getPublishedProjects()).length > 0;
 const hasPosts = (await getPublishedPosts()).length > 0;
 const links = [
+	{ href: '/about/', label: 'About' },
 	{ href: '/#research', label: 'Research' },
 	...(hasProjects ? [{ href: '/#projects', label: 'Projects' }] : []),
 	{ href: '/#experience', label: 'Experience' },
