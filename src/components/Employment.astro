@@ -2,25 +2,53 @@
 import { getCollection } from 'astro:content';
 import { formatRange } from '../lib/format';
 
+type Job = (typeof jobs)[number];
+
 const jobs = (await getCollection('work')).sort((a, b) => b.data.start.localeCompare(a.data.start));
+
+// Consecutive roles at the same employer become one entry with the roles nested.
+const groups: { employer: string; url: string; roles: Job[] }[] = [];
+for (const job of jobs) {
+	const last = groups.at(-1);
+	if (last && last.employer === job.data.employer) last.roles.push(job);
+	else groups.push({ employer: job.data.employer, url: job.data.employerUrl, roles: [job] });
+}
+
+const isCurrent = (roles: Job[]) => roles.some((r) => r.data.end === 'present');
+const groupRange = (roles: Job[]) => {
+	const start = roles.at(-1)!.data.start;
+	const ends = roles.map((r) => r.data.end);
+	const end = ends.includes('present') ? 'present' : ends.includes(undefined) ? undefined : ends.sort().at(-1);
+	return formatRange(start, end);
+};
 ---
 
 <section class="sections employment-section">
 	<h2 class="section-title">Professional employment</h2>
-	<ol class="vertical-timeline">
+	<ol class="timeline">
 		{
-			jobs.map(({ data }) => (
-				<li class="employment-card">
-					<div class="timeline-dot" />
-					<div class="timeline-content">
-						<span class="employment-date">{formatRange(data.start, data.end)}</span>
-						<h3 class="employment-title">{data.title}</h3>
-						<a href={data.employerUrl} class="employment-employer" target="_blank" rel="noopener">
-							{data.employer}
-						</a>
-						<span class="employment-location">{data.location}</span>
-						<p class="employment-description">{data.description}</p>
+			groups.map(({ employer, url, roles }) => (
+				<li class:list={['tl-entry', { 'tl-current': isCurrent(roles) }]}>
+					<div class="tl-row tl-head">
+						<span class="tl-date">{groupRange(roles)}</span>
+						<span class="tl-rail"><span class="tl-dot" /></span>
+						<h3 class="tl-employer">
+							<a href={url} target="_blank" rel="noopener">{employer}</a>
+						</h3>
 					</div>
+					{roles.map(({ data }) => (
+						<div class="tl-row tl-role">
+							<span class="tl-date">{roles.length > 1 && formatRange(data.start, data.end)}</span>
+							<span class="tl-rail" />
+							<div class="tl-body">
+								<p class="tl-title">
+									{data.title}
+									<span class="tl-location">{data.location}</span>
+								</p>
+								<p class="tl-description">{data.description}</p>
+							</div>
+						</div>
+					))}
 				</li>
 			))
 		}
