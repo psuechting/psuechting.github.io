@@ -5,13 +5,44 @@
 	--color-text-secondary: #6B7280;
 	--color-card-bg: #F3F0EB;
 	--color-timeline-line: #E5E0D8;
-	
+	--color-on-accent: #FFFFFF;
+	--color-shadow: rgba(26, 39, 68, 0.08);
+	--color-shadow-strong: rgba(26, 39, 68, 0.1);
+	color-scheme: light;
+
 	--font-heading: 'Crimson Pro', serif;
 	--font-body: 'Inter', sans-serif;
 	
 	--radius: 8px;
 	--transition: 0.3s ease;
 	--container-max: 1000px;
+}
+
+/* Dark palette: follows the system setting unless the toggle has set data-theme. */
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) {
+		--color-bg: #15181F;
+		--color-text: #ECE7DF;
+		--color-accent: #E08A62;
+		--color-text-secondary: #A6A9B3;
+		--color-card-bg: #1F232C;
+		--color-timeline-line: #343945;
+		--color-shadow: rgba(0, 0, 0, 0.35);
+		--color-shadow-strong: rgba(0, 0, 0, 0.5);
+		color-scheme: dark;
+	}
+}
+
+:root[data-theme="dark"] {
+	--color-bg: #15181F;
+	--color-text: #ECE7DF;
+	--color-accent: #E08A62;
+	--color-text-secondary: #A6A9B3;
+	--color-card-bg: #1F232C;
+	--color-timeline-line: #343945;
+	--color-shadow: rgba(0, 0, 0, 0.35);
+	--color-shadow-strong: rgba(0, 0, 0, 0.5);
+	color-scheme: dark;
 }
 
 *, *::before, *::after {
@@ -175,7 +206,7 @@ a:hover {
 
 .list-card:hover {
 	transform: translateY(-2px);
-	box-shadow: 0 4px 12px rgba(26, 39, 68, 0.08);
+	box-shadow: 0 4px 12px var(--color-shadow);
 }
 
 .list-card .exp {
@@ -239,7 +270,7 @@ a:hover {
 
 .card:hover {
 	transform: translateY(-4px);
-	box-shadow: 0 8px 24px rgba(26, 39, 68, 0.1);
+	box-shadow: 0 8px 24px var(--color-shadow-strong);
 }
 
 .card-title {
@@ -308,7 +339,7 @@ a:hover {
 
 .timeline-content:hover {
 	transform: translateX(4px);
-	box-shadow: 0 4px 12px rgba(26, 39, 68, 0.08);
+	box-shadow: 0 4px 12px var(--color-shadow);
 }
 
 .employment-date {
@@ -352,18 +383,37 @@ a:hover {
 	line-height: 1.6;
 }
 
-.list-card.awards .award-description {
-	max-height: 0;
-	overflow: hidden;
-	transition: max-height var(--transition), padding var(--transition);
+.award-details {
+	margin-top: 8px;
 }
 
-.list-card.awards:hover .award-description {
-	max-height: 200px;
-	padding-top: 12px;
+.award-details summary {
+	display: inline-block;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--color-accent);
+	list-style: none;
 }
 
-.list-card.awards .desc-text {
+.award-details summary::-webkit-details-marker {
+	display: none;
+}
+
+.award-details summary::before {
+	content: '+ ';
+}
+
+.award-details[open] summary::before {
+	content: '− ';
+}
+
+.award-details summary:hover {
+	color: var(--color-text);
+}
+
+.award-details .desc-text {
+	margin-top: 8px;
 	font-size: 14px;
 	color: var(--color-text-secondary);
 	line-height: 1.5;
@@ -375,7 +425,7 @@ a:hover {
 	position: sticky;
 	top: 0;
 	z-index: 20;
-	background-color: rgba(250, 248, 245, 0.92);
+	background-color: color-mix(in srgb, var(--color-bg) 92%, transparent);
 	backdrop-filter: blur(8px);
 	border-bottom: 1px solid var(--color-timeline-line);
 }
@@ -414,6 +464,45 @@ a:hover {
 	color: var(--color-accent);
 }
 
+.theme-toggle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	padding: 0;
+	border: 1px solid var(--color-timeline-line);
+	border-radius: 50%;
+	background: none;
+	color: var(--color-text-secondary);
+	cursor: pointer;
+	transition: color var(--transition), border-color var(--transition);
+}
+
+.theme-toggle:hover {
+	color: var(--color-accent);
+	border-color: var(--color-accent);
+}
+
+.theme-toggle .icon-sun,
+:root[data-theme="dark"] .theme-toggle .icon-moon {
+	display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-sun {
+	display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) .theme-toggle .icon-moon {
+		display: none;
+	}
+
+	:root:not([data-theme="light"]) .theme-toggle .icon-sun {
+		display: block;
+	}
+}
+
 [id] {
 	scroll-margin-top: 72px;
 }
@@ -444,13 +533,13 @@ a:hover {
 
 .button-primary {
 	background-color: var(--color-accent);
-	color: #fff;
+	color: var(--color-on-accent);
 }
 
 .button-primary:hover {
 	background-color: var(--color-text);
 	border-color: var(--color-text);
-	color: #fff;
+	color: var(--color-bg);
 }
 
 a:focus-visible,
@@ -712,11 +801,18 @@ button:focus-visible {
 }
 
 .cv {
+	/* The CV is a sheet of paper: keep the light palette in both themes. */
+	--color-text: #1A2744;
+	--color-accent: #C4704A;
+	--color-text-secondary: #6B7280;
+	--color-timeline-line: #E5E0D8;
+	color-scheme: light;
+	color: var(--color-text);
 	max-width: 8.5in;
 	margin: 24px auto 64px;
 	padding: 0.6in 0.7in;
 	background-color: #fff;
-	box-shadow: 0 4px 24px rgba(26, 39, 68, 0.08);
+	box-shadow: 0 4px 24px var(--color-shadow);
 	font-size: 10.5pt;
 	line-height: 1.45;
 }
