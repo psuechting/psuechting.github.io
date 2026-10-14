@@ -1,6 +1,6 @@
 - id: research-design
   order: 1
-  years: + 9 years
+  years: 9+ years
   title: Social scientific research design
   items:
     - Literature review, contextualization & synthesis
@@ -12,7 +12,7 @@
 
 - id: econometrics
   order: 2
-  years: + 7 years
+  years: 7+ years
   title: Econometric techniques & statistical programming
   items:
     - R/RStudio/Markdown & Latex
@@ -23,7 +23,7 @@
 
 - id: crm
   order: 3
-  years: + 5 years
+  years: 5+ years
   title: CRM design, management
   items:
     - AirTable
@@ -35,7 +35,7 @@
 
 - id: enterprise-systems
   order: 4
-  years: + 5 years
+  years: 5+ years
   title: Enterprise Information Systems Development
   items:
     - Airtable

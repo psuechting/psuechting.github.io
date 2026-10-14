@@ -216,62 +216,15 @@ a:hover {
 	padding: 40px 0;
 }
 
-.list-card {
-	display: flex;
-	gap: 20px;
-	padding: 20px 24px;
-	margin-bottom: 16px;
-	background-color: var(--color-card-bg);
-	border-radius: var(--radius);
-	transition: transform var(--transition), box-shadow var(--transition);
-}
 
-.list-card:hover {
-	transform: translateY(-2px);
-	box-shadow: 0 4px 12px var(--color-shadow);
-}
 
-.list-card .exp {
-	flex-shrink: 0;
-	width: 80px;
-	font-size: 14px;
-	font-weight: 600;
-	color: var(--color-accent);
-}
 
-.list-card > div {
-	flex: 1;
-}
 
-.list-card h3 {
-	margin-bottom: 4px;
-}
 
-.list-card span {
-	font-size: 15px;
-	color: var(--color-text-secondary);
-	display: block;
-	margin-bottom: 2px;
-}
 
-.list-card .projects-label {
-	margin-top: 16px;
-}
 
-.list-card .projects {
-	margin-top: 4px;
-	padding-left: 20px;
-}
 
-.list-card .projects li {
-	margin-bottom: 4px;
-	font-size: 15px;
-	color: var(--color-text-secondary);
-}
 
-.list-card .projects li a {
-	font-size: 15px;
-}
 
 .card-container {
 	padding: 40px 0;
@@ -307,6 +260,103 @@ a:hover {
 	font-size: 15px;
 	color: var(--color-text-secondary);
 	line-height: 1.5;
+}
+
+/* Ledger: CV-style rows (label · content) separated by hairlines. The label column
+   matches the timeline's date column so content lines up across sections. */
+.ledger {
+	--ledger-label: 150px;
+	--ledger-gap: 56px;
+	list-style: none;
+}
+
+.ledger-row {
+	display: grid;
+	grid-template-columns: var(--ledger-label) minmax(0, 1fr);
+	column-gap: var(--ledger-gap);
+	align-items: baseline;
+	padding: 16px 0;
+	border-top: 1px solid var(--color-timeline-line);
+}
+
+.ledger-row:first-child {
+	padding-top: 0;
+	border-top: 0;
+}
+
+.ledger-label {
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	text-align: right;
+	white-space: nowrap;
+	color: var(--color-accent);
+}
+
+.ledger-body h3 {
+	font-size: 18px;
+	margin-bottom: 2px;
+}
+
+.ledger-body h3 a {
+	color: var(--color-text);
+}
+
+.ledger-body h3 a:hover {
+	color: var(--color-accent);
+}
+
+.ledger-meta {
+	display: block;
+	font-size: 15px;
+	color: var(--color-text-secondary);
+}
+
+.ledger .projects {
+	margin-top: 8px;
+	padding-left: 20px;
+}
+
+.ledger .projects li {
+	font-size: 15px;
+	margin-bottom: 4px;
+}
+
+/* Keyword groups: a heading plus a row of chips (skills, research interests). */
+.keyword-groups {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 32px 40px;
+}
+
+.keyword-groups-3 {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.keyword-group h3 {
+	font-size: 18px;
+	margin-bottom: 2px;
+}
+
+.keyword-years {
+	display: block;
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	color: var(--color-accent);
+	margin-bottom: 10px;
+}
+
+.keyword-group h3 + .chips {
+	margin-top: 10px;
+}
+
+.chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	list-style: none;
+	padding: 0;
 }
 
 /* Employment timeline: a date · rail · content grid. The rail line and dots are
@@ -1085,6 +1135,10 @@ a.tag:hover {
 	.cards {
 		grid-template-columns: repeat(2, 1fr);
 	}
+
+	.keyword-groups-3 {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
 }
 
 @media (max-width: 600px) {
@@ -1112,13 +1166,21 @@ a.tag:hover {
 		grid-template-columns: 1fr;
 	}
 	
-	.list-card {
-		flex-direction: column;
-		gap: 12px;
-	}
 	
-	.list-card .exp {
-		width: auto;
+
+	.ledger-row {
+		grid-template-columns: minmax(0, 1fr);
+		row-gap: 2px;
+	}
+
+	.ledger-label {
+		text-align: left;
+	}
+
+	.keyword-groups,
+	.keyword-groups-3 {
+		grid-template-columns: minmax(0, 1fr);
+		gap: 24px;
 	}
 
 	.timeline {
