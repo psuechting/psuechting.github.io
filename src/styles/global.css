@@ -181,6 +181,28 @@ a:hover {
 	margin-bottom: 24px;
 }
 
+.hero .now {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 4px 10px;
+	font-size: 15px;
+	color: var(--color-text-secondary);
+	margin-bottom: 24px;
+}
+
+.hero .now-label {
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--color-accent);
+}
+
+.hero .now-sep {
+	color: var(--color-timeline-line);
+}
+
 .hero.about-me {
 	padding: 40px 0;
 }
