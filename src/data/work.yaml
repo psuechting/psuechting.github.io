@@ -43,15 +43,28 @@
   description: >-
     Taught Environmental Studies and Political Science (2019–2023) while completing a three-paper dissertation on organizational structure, environmental justice and the geography of the green transition in the U.S. power sector, built on federal data covering more than 13,000 power plants.
 
-- id: corporate-accountability
+- id: corporate-accountability-data
   employer: Corporate Accountability
   employerUrl: https://www.corporateaccountability.org
   title: Data & Analysis Manager
-  start: 2017-02
+  start: 2018-07
   end: 2019-07
   location: Boston, MA
   description: >-
-    Ran membership data and campaign analytics for an international nonprofit challenging corporate influence on climate and public-health policy, first as Membership Manager and then as Data & Analysis Manager. Campaign targets included GE, Philip Morris, Exxon Mobil and Veolia.
+    Ran data and campaign analytics across the organization's campaigns challenging corporate
+    influence on climate and public-health policy; targets included GE, Philip Morris, Exxon Mobil
+    and Veolia.
+
+- id: corporate-accountability-membership
+  employer: Corporate Accountability
+  employerUrl: https://www.corporateaccountability.org
+  title: Membership Manager
+  start: 2017-02
+  end: 2018-07
+  location: Boston, MA
+  description: >-
+    Managed membership data and member engagement for an international nonprofit challenging
+    corporate influence on climate and public-health policy.
 
 - id: nextgen-climate-nh
   employer: NextGen Climate NH
