@@ -31,8 +31,7 @@
   end: present
   location: Remote
   description: >-
-    Climate Finance Solutions (CFS) is a global consultancy that helps companies and organizations
-    secure large-scale grant funding to develop and scale their high-impact climate solutions.
+    Designed and built the information architecture behind CFS's climate funding intelligence platform: a relational database that turns hundreds of scraped leads a day into a curated library of nearly 10,000 climate R&D funding opportunities, delivered to clients through a portal and since developed into a commercial product.
 
 - id: uo-phd
   employer: UO Political Science & Environmental Studies
@@ -42,10 +41,7 @@
   end: 2026-08
   location: Eugene, OR
   description: >-
-    Founded in 1976, the Environmental Studies program laid the early foundation for the UO's strong
-    track record in environmental research and teaching; now, with 26 core faculty and more than 100
-    participating faculty from 30 campus departments and programs, it sets the standard in
-    interdisciplinary dialogue and collaboration.
+    Taught Environmental Studies and Political Science (2019–2023) while completing a three-paper dissertation on organizational structure, environmental justice and the geography of the green transition in the U.S. power sector, built on federal data covering more than 13,000 power plants.
 
 - id: corporate-accountability
   employer: Corporate Accountability
@@ -54,8 +50,7 @@
   start: 2017-02
   location: Boston, MA
   description: >-
-    Corporate Accountability wages strategic campaigns that compel transnational corporations, and
-    the governments that do their bidding, to stop destroying our health, human rights, democracy, and planet.
+    Ran membership data and campaign analytics for an international nonprofit challenging corporate influence on climate and public-health policy, first as Membership Manager and then as Data & Analysis Manager. Campaign targets included GE, Philip Morris, Exxon Mobil and Veolia.
 
 - id: nextgen-climate-nh
   employer: NextGen Climate NH
@@ -64,7 +59,7 @@
   start: 2016-08
   location: Manchester, NH
   description: >-
-    NextGen Climate acts politically to prevent climate disaster and promote prosperity for every American.
+    Directed state operations for NextGen Climate's New Hampshire program during the 2016 election cycle: the field infrastructure, staff and data behind a statewide climate-focused voter mobilization effort.
 
 - id: community-voters-project
   employer: Community Voters Project
@@ -73,6 +68,4 @@
   start: 2016-04
   location: Pueblo, CO
   description: >-
-    Community Voters Project is helping to increase civic engagement among underserved and
-    underrepresented communities, focusing primarily on African Americans, Latinos, and in some
-    locations, young people, through non-partner voter registration and GOTV campaigns.
+    Directed a canvass office registering and turning out voters in underserved and underrepresented communities in Pueblo, Colorado, through nonpartisan voter registration and get-out-the-vote work.
