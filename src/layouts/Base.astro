@@ -42,7 +42,11 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 		<meta property="og:site_name" content={profile.name} />
 		<meta property="profile:first_name" content="Peter" />
 		<meta property="profile:last_name" content="Suechting" />
-		<meta name="twitter:card" content="summary" />
+		<meta property="og:image" content={new URL('/og-image.png', Astro.site)} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content={`${profile.name}, ${profile.honorific} — ${profile.title}`} />
+		<meta name="twitter:card" content="summary_large_image" />
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -52,6 +56,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 		/>
 	</head>
 	<body>
+		<a class="skip-link" href="#main">Skip to content</a>
 		{nav && <Nav />}
 		<slot />
 	</body>

@@ -13,7 +13,7 @@ const { tag, posts } = Astro.props;
 ---
 
 <Base title={`Posts tagged “${tag}” | ${profile.name}`} description={`Writing by ${profile.name} tagged ${tag}.`}>
-	<main class="container article">
+	<main id="main" class="container article">
 		<a class="back-link" href="/writing/">← Writing</a>
 		<h1 class="article-title">Tagged “{tag}”</h1>
 		<PostList posts={posts} />

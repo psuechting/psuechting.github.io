@@ -1,6 +1,7 @@
 ---
 import { profile } from '../data/profile';
 import Icon from './Icon.astro';
+import Email from './Email.astro';
 ---
 
 <footer class="container site-footer" id="contact">
@@ -10,7 +11,7 @@ import Icon from './Icon.astro';
 			profile.emails.map((email) => (
 				<li>
 					<span class="contact-label">{email.label}</span>
-					<a href={`mailto:${email.address}`}>{email.address}</a>
+					<Email address={email.address} />
 				</li>
 			))
 		}
@@ -18,7 +19,7 @@ import Icon from './Icon.astro';
 			profile.social.map((link) => (
 				<li>
 					<span class="contact-label">{link.label}</span>
-					<a href={link.url} rel="me noopener" target="_blank">
+					<a href={link.url} rel="me">
 						<Icon name={link.platform} /> {link.url.replace(/^https:\/\/(www\.)?/, '')}
 					</a>
 				</li>

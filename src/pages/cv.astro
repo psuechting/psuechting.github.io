@@ -5,6 +5,7 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import { profile } from '../data/profile';
 import { formatRange } from '../lib/format';
+import Email from '../components/Email.astro';
 
 const byOrder = <T extends { data: { order: number } }>(a: T, b: T) => a.data.order - b.data.order;
 
@@ -20,24 +21,24 @@ const interests = (await getCollection('interests')).sort(byOrder);
 ---
 
 <Base title={`CV | ${profile.name}, ${profile.honorific}`} nav={false}>
-	<div class="cv-toolbar">
+	<nav class="cv-toolbar" aria-label="CV page">
 		<a href="/">← Back to site</a>
 		<a class="button button-primary" href={profile.cvPath}>Download PDF</a>
-	</div>
-	<main class="cv">
+	</nav>
+	<main id="main" class="cv">
 		<header class="cv-header">
 			<h1>{profile.name}, {profile.honorific}</h1>
 			<p>{profile.title}</p>
 			<p class="cv-contact">
 				{
 					[
-						...profile.emails.map((e) => e.address),
-						'psuechting.github.io',
-						...profile.social.map((s) => s.url.replace(/^https:\/\/(www\.)?/, '')),
+						...profile.emails.map((e) => ({ email: e.address })),
+						{ text: 'psuechting.github.io' },
+						...profile.social.map((s) => ({ text: s.url.replace(/^https:\/\/(www\.)?/, '') })),
 					].map((item, i) => (
 						<>
 							{i > 0 && ' · '}
-							<span>{item}</span>
+							<span>{'email' in item ? <Email address={item.email} /> : item.text}</span>
 						</>
 					))
 				}

@@ -9,7 +9,7 @@ const { Content } = await render(bio);
 ---
 
 <Base title={`About | ${profile.name}`} description={profile.about}>
-	<main class="container article">
+	<main id="main" class="container article">
 		<a class="back-link" href="/">← Home</a>
 		<h1 class="article-title">{bio.data.title}</h1>
 		<p class="article-meta">{profile.title}</p>
