@@ -54,4 +54,4 @@ The platform is the research engine behind CFS's grant-writing practice. The fir
 	<li><strong>89%</strong><span>success rate ($ awarded vs. pursued)</span></li>
 </ul>
 
-<p class="source">Figures as published on <a href="https://www.climatefinancesolutions.com/" target="_blank" rel="noopener">climatefinancesolutions.com</a>.</p>
+<p class="source">Figures as published on <a href="https://www.climatefinancesolutions.com/">climatefinancesolutions.com</a>.</p>

@@ -1,0 +1,20 @@
+---
+// Email link that spam harvesters can't lift from the HTML: the address is split into
+// data attributes and assembled in the browser. Without JavaScript it still reads as
+// "user [at] domain".
+interface Props {
+	address: string;
+	title?: string;
+}
+const [user, domain] = Astro.props.address.split('@');
+---
+
+<a class="email-link" href="#" data-user={user} data-domain={domain} title={Astro.props.title}>{user} [at] {domain}</a>
+
+<script>
+	for (const a of document.querySelectorAll<HTMLAnchorElement>('a.email-link[data-user]')) {
+		const address = `${a.dataset.user}@${a.dataset.domain}`;
+		a.href = `mailto:${address}`;
+		a.textContent = address;
+	}
+</script>

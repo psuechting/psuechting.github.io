@@ -1,8 +1,8 @@
 :root {
 	--color-bg: #FAF8F5;
 	--color-text: #1A2744;
-	--color-accent: #C4704A;
-	--color-text-secondary: #6B7280;
+	--color-accent: #A85533;
+	--color-text-secondary: #5F6675;
 	--color-card-bg: #F3F0EB;
 	--color-timeline-line: #E5E0D8;
 	--color-on-accent: #FFFFFF;
@@ -105,6 +105,24 @@ a:hover {
 	color: var(--color-text);
 }
 
+/* Links inside running text are underlined, so colour isn't the only cue. */
+.prose a:not(.button),
+.source a,
+.cv-contact a,
+.article-meta a,
+.ledger-meta a {
+	text-decoration: underline;
+	text-underline-offset: 0.15em;
+}
+
+/* Text links that double as the only tap target get enough height on phones. */
+.tl-employer a,
+.ledger-body h3 a,
+.contact-list a {
+	display: inline-block;
+	padding: 3px 0;
+}
+
 .section-title {
 	position: relative;
 	display: inline-block;
@@ -144,10 +162,18 @@ a:hover {
 }
 
 .hero .email {
-	display: block;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 4px 8px;
 	font-size: 15px;
 	color: var(--color-text-secondary);
 	margin-bottom: 20px;
+}
+
+.hero .email .email-link {
+	display: inline-block;
+	padding: 6px 0;
 }
 
 .hero .email a {
@@ -159,9 +185,12 @@ a:hover {
 }
 
 .hero .social {
-	display: inline-block;
-	vertical-align: -3px;
-	margin-left: 12px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	margin-left: 4px;
 	font-size: 20px;
 	color: var(--color-accent);
 	transition: color var(--transition), transform var(--transition);
@@ -494,6 +523,7 @@ a:hover {
 
 .award-details summary {
 	display: inline-block;
+	padding: 4px 0;
 	cursor: pointer;
 	font-size: 14px;
 	font-weight: 600;
@@ -524,6 +554,23 @@ a:hover {
 	line-height: 1.5;
 }
 
+
+/* Skip link: invisible until focused by keyboard */
+.skip-link {
+	position: absolute;
+	top: -100px;
+	left: 16px;
+	z-index: 30;
+	padding: 10px 16px;
+	border-radius: var(--radius);
+	background-color: var(--color-accent);
+	color: var(--color-on-accent);
+	font-weight: 600;
+}
+
+.skip-link:focus {
+	top: 12px;
+}
 
 /* Navigation */
 .site-nav {
@@ -559,6 +606,8 @@ a:hover {
 }
 
 .site-nav ul a {
+	display: inline-block;
+	padding: 10px 2px;
 	font-size: 15px;
 	color: var(--color-text-secondary);
 	white-space: nowrap;
@@ -693,6 +742,8 @@ button:focus-visible {
 }
 
 .feature-link {
+	display: inline-block;
+	padding: 4px 0;
 	font-size: 15px;
 	font-weight: 600;
 }
@@ -709,8 +760,9 @@ button:focus-visible {
 
 .back-link {
 	display: inline-block;
+	padding: 4px 0;
 	font-size: 15px;
-	margin-bottom: 32px;
+	margin-bottom: 28px;
 }
 
 .article-title {
@@ -1037,8 +1089,8 @@ a.tag:hover {
 .cv {
 	/* The CV is a sheet of paper: keep the light palette in both themes. */
 	--color-text: #1A2744;
-	--color-accent: #C4704A;
-	--color-text-secondary: #6B7280;
+	--color-accent: #A85533;
+	--color-text-secondary: #5F6675;
 	--color-timeline-line: #E5E0D8;
 	color-scheme: light;
 	color: var(--color-text);
@@ -1242,11 +1294,16 @@ a.tag:hover {
 		justify-content: center;
 	}
 
+	/* On phones the two-row bar would eat a tenth of the screen if it stayed stuck. */
+	.site-nav {
+		position: static;
+	}
+
 	.site-nav ul {
 		flex-wrap: wrap;
 		justify-content: center;
-		gap: 4px 14px;
-		padding: 6px 0;
+		gap: 0 12px;
+		padding: 2px 0;
 	}
 
 	.site-nav ul a {
@@ -1254,7 +1311,7 @@ a.tag:hover {
 	}
 
 	[id] {
-		scroll-margin-top: 96px;
+		scroll-margin-top: 16px;
 	}
 
 	.feature-card {

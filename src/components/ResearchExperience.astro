@@ -15,7 +15,7 @@ const positions = (await getCollection('research')).sort((a, b) => a.data.order 
 					<span class="ledger-meta">{data.role} · PI: {data.pi}</span>
 					<ol class="projects">
 						{data.projects.map((project) => (
-							<li><a href={project.url} target="_blank" rel="noopener">{project.name}</a></li>
+							<li><a href={project.url}>{project.name}</a></li>
 						))}
 					</ol>
 				</Ledger>

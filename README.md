@@ -35,6 +35,7 @@ npm install
 npm run dev      # http://localhost:4321
 npm run build    # type-check + build to dist/
 npm run build:cv # print /cv/ to dist/peter-suechting-cv.pdf (after build)
+npm run build:og # regenerate public/og-image.png (the link-preview card) after changing name/title/tagline
 npm run preview  # serve the built site
 ```
 

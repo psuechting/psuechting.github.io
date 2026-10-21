@@ -11,7 +11,7 @@ const publications = (await getCollection('publications')).sort((a, b) => b.data
 		{
 			publications.map(({ data }) => (
 				<Ledger label={data.year}>
-					<h3>{data.url ? <a href={data.url} target="_blank" rel="noopener">{data.citation}</a> : data.citation}</h3>
+					<h3>{data.url ? <a href={data.url}>{data.citation}</a> : data.citation}</h3>
 					<span class="ledger-meta">{data.venue}</span>
 				</Ledger>
 			))
