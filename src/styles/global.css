@@ -166,6 +166,7 @@ a:hover {
 /* Text links that double as the only tap target get enough height on phones. */
 .tl-employer a,
 .ledger-body h3 a,
+.ledger .projects li a,
 .contact-list a {
 	display: inline-block;
 	padding: 3px 0;
