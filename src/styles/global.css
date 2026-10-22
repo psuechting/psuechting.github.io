@@ -1,19 +1,21 @@
 :root {
-	--color-bg: #FAF8F5;
-	--color-text: #1A2744;
-	--color-accent: #A85533;
-	--color-text-secondary: #5F6675;
-	--color-card-bg: #F3F0EB;
-	--color-timeline-line: #E5E0D8;
+	/* "Signal": cool paper, ink text, forest-green accent. All pairs >= 4.5:1. */
+	--color-bg: #F5F8F7;
+	--color-text: #0E1F2B;
+	--color-accent: #1B7A5A;
+	--color-text-secondary: #52626A;
+	--color-card-bg: #E8EFEC;
+	--color-timeline-line: #CFDAD5;
 	--color-on-accent: #FFFFFF;
-	--color-shadow: rgba(26, 39, 68, 0.08);
-	--color-shadow-strong: rgba(26, 39, 68, 0.1);
+	--color-shadow: rgba(14, 31, 43, 0.08);
+	--color-shadow-strong: rgba(14, 31, 43, 0.12);
 	color-scheme: light;
 
-	--font-heading: 'Crimson Pro', serif;
-	--font-body: 'Inter', sans-serif;
-	
-	--radius: 8px;
+	--font-heading: 'IBM Plex Sans', system-ui, sans-serif;
+	--font-body: 'IBM Plex Sans', system-ui, sans-serif;
+	--font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+	--radius: 6px;
 	--transition: 0.3s ease;
 	--container-max: 1000px;
 	/* Comfortable line length for running text. */
@@ -23,13 +25,13 @@
 /* Dark palette: follows the system setting unless the toggle has set data-theme. */
 @media (prefers-color-scheme: dark) {
 	:root:not([data-theme="light"]) {
-		--color-bg: #15181F;
-		--color-text: #ECE7DF;
-		--color-accent: #E08A62;
-		--color-text-secondary: #A6A9B3;
-		--color-card-bg: #1F232C;
-		--color-timeline-line: #343945;
-		--color-on-accent: #15181F;
+		--color-bg: #0C1418;
+		--color-text: #E4ECEA;
+		--color-accent: #4FC995;
+		--color-text-secondary: #9FB0AC;
+		--color-card-bg: #142026;
+		--color-timeline-line: #26343B;
+		--color-on-accent: #0C1418;
 		--color-shadow: rgba(0, 0, 0, 0.35);
 		--color-shadow-strong: rgba(0, 0, 0, 0.5);
 		color-scheme: dark;
@@ -37,13 +39,13 @@
 }
 
 :root[data-theme="dark"] {
-	--color-bg: #15181F;
-	--color-text: #ECE7DF;
-	--color-accent: #E08A62;
-	--color-text-secondary: #A6A9B3;
-	--color-card-bg: #1F232C;
-	--color-timeline-line: #343945;
-	--color-on-accent: #15181F;
+	--color-bg: #0C1418;
+	--color-text: #E4ECEA;
+	--color-accent: #4FC995;
+	--color-text-secondary: #9FB0AC;
+	--color-card-bg: #142026;
+	--color-timeline-line: #26343B;
+	--color-on-accent: #0C1418;
 	--color-shadow: rgba(0, 0, 0, 0.35);
 	--color-shadow-strong: rgba(0, 0, 0, 0.5);
 	color-scheme: dark;
@@ -82,7 +84,8 @@ body {
 
 h1, h2, h3 {
 	font-family: var(--font-heading);
-	font-weight: 400;
+	font-weight: 500;
+	letter-spacing: -0.015em;
 	color: var(--color-text);
 	text-wrap: balance;
 }
@@ -119,10 +122,41 @@ a:hover {
 	color: var(--color-text);
 }
 
+/* Data-like elements (dates, labels, chips) set in mono: the systems half of the brief. */
+.tl-date,
+.ledger-label,
+.keyword-years,
+.feature-eyebrow,
+.now-label,
+.now,
+.post-meta,
+.contact-label,
+.tag,
+.cv-date,
+.employment-date {
+	font-family: var(--font-mono);
+	letter-spacing: 0;
+	font-size: 13px;
+}
+
+.tag {
+	font-size: 12.5px;
+	border-radius: 4px;
+}
+
+.feature-eyebrow,
+.now-label,
+.contact-label {
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	font-size: 12px;
+}
+
 /* Links inside running text are underlined, so colour isn't the only cue. */
 .prose a:not(.button),
 .source a,
 .cv-contact a,
+.cv-detail a,
 .article-meta a,
 .ledger-meta a {
 	text-decoration: underline;
@@ -165,7 +199,7 @@ a:hover {
 }
 
 .hero .name strong {
-	font-weight: 600;
+	font-weight: 700;
 }
 
 .hero .job-title {
@@ -225,9 +259,8 @@ a:hover {
 }
 
 .hero .lead {
-	font-family: var(--font-heading);
-	font-size: 22px;
-	font-style: italic;
+	font-size: 20px;
+	line-height: 1.55;
 	color: var(--color-text-secondary);
 	max-width: 700px;
 	margin-bottom: 24px;
@@ -630,7 +663,9 @@ a:hover {
 
 .site-nav ul a {
 	display: inline-block;
-	padding: 10px 2px;
+	min-width: 24px;
+	padding: 10px 4px;
+	text-align: center;
 	font-size: 15px;
 	color: var(--color-text-secondary);
 	white-space: nowrap;
@@ -932,7 +967,7 @@ button:focus-visible {
 .chapter h3::before {
 	content: 'Chapter ' counter(chapter);
 	display: block;
-	font-family: var(--font-body);
+	font-family: var(--font-mono);
 	font-size: 12px;
 	font-weight: 600;
 	letter-spacing: 0.04em;
@@ -1115,10 +1150,10 @@ a.tag:hover {
 
 .cv {
 	/* The CV is a sheet of paper: keep the light palette in both themes. */
-	--color-text: #1A2744;
-	--color-accent: #A85533;
-	--color-text-secondary: #5F6675;
-	--color-timeline-line: #E5E0D8;
+	--color-text: #0E1F2B;
+	--color-accent: #1B7A5A;
+	--color-text-secondary: #52626A;
+	--color-timeline-line: #CFDAD5;
 	color-scheme: light;
 	color: var(--color-text);
 	max-width: 8.5in;

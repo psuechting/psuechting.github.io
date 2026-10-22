@@ -37,7 +37,7 @@ The site's distinctive claim is the pairing itself: a Ph.D. researcher who also 
 - All content is data: YAML files in `src/data/`, Markdown collections in `src/content/`, and `src/data/profile.ts`. Every entry is validated against `src/content.config.ts` at build time. Components in `src/components/` render that data; all styling lives in `src/styles/global.css`.
 - Pages: home, `/about/` (full bio), `/research/dissertation/`, `/projects/<id>/` (two published), `/cv/` (printable, also rendered to PDF), `/writing/` with tag pages and RSS (one draft post, section hidden until a post is published), and a 404.
 - Light and dark themes: system preference by default, with a toggle in the nav that persists to local storage.
-- Fonts are Crimson Pro and Inter from Google Fonts. Icons are inline SVG; there is no icon library.
+- Fonts are IBM Plex Sans (headings and body) and IBM Plex Mono (dates, labels, chips) from Google Fonts. Palette: cool paper `#F5F8F7`, ink `#0E1F2B`, forest-green accent `#1B7A5A` (mint `#4FC995` in dark mode); every text/background pair meets 4.5:1. Icons are inline SVG; there is no icon library.
 - The `dissertation_project/` folder at the repo root is private Notion working files. It is not site content and must never be surfaced, linked, or used as evidence on the published site.
 
 ## Capabilities and Constraints
