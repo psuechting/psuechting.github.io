@@ -21,7 +21,7 @@ const committee = data.committee.map((m) => (m.role ? `${m.name} (${m.role})` : 
 			{data.degree} · {data.institution} · Defended {conferred}<br />
 			Committee: {committee}
 		</p>
-		{data.url && <p><a class="button button-primary" href={data.url}>Read the full dissertation</a></p>}
+		{data.url && <p class="hero-actions"><a class="button button-primary" href={data.url}>Read the full dissertation</a><span class="article-meta">Open access on ProQuest</span></p>}
 
 		<h2 class="section-title">Abstract</h2>
 		<div class="prose"><Content /></div>
@@ -45,6 +45,8 @@ const committee = data.committee.map((m) => (m.role ? `${m.name} (${m.role})` : 
 		<h2 class="section-title">Cite</h2>
 		<p class="citation">
 			Suechting, P. ({year}). <em>{data.title}</em> [Doctoral dissertation, {data.institution}].
+			{data.proquestNumber && <> ProQuest Dissertations & Theses Global ({data.proquestNumber}).</>}
+			{data.url && <> <a href={data.url}>{data.url}</a></>}
 		</p>
 	</main>
 </Base>

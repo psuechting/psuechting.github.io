@@ -109,8 +109,9 @@ const dissertation = defineCollection({
 		committee: z.array(z.object({ name: z.string(), role: z.string().optional() })),
 		chapters: z.array(z.object({ title: z.string(), subtitle: z.string(), finding: z.string() })),
 		data: z.array(z.string()),
-		// Link to the full text (e.g. UO Scholars' Bank or ProQuest) once it's available.
+		// Link to the full text (ProQuest).
 		url: z.url().optional(),
+		proquestNumber: z.string().optional(),
 	}),
 });
 
