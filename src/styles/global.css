@@ -155,12 +155,21 @@ a:hover {
 /* Links inside running text are underlined, so colour isn't the only cue. */
 .prose a:not(.button),
 .source a,
+.citation a,
 .cv-contact a,
 .cv-detail a,
 .article-meta a,
 .ledger-meta a {
 	text-decoration: underline;
 	text-underline-offset: 0.15em;
+	/* Vertical padding on an inline link enlarges its tap area (to >= 24px) without changing line layout. */
+	padding: 4px 0;
+}
+
+/* The CV's smaller type needs a little more to reach 24px. */
+.cv-contact a,
+.cv-detail a {
+	padding: 5px 0;
 }
 
 /* Text links that double as the only tap target get enough height on phones. */
