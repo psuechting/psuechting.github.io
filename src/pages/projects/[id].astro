@@ -17,9 +17,8 @@ const { data } = project;
 <Base title={`${data.title} | ${profile.name}`} description={data.summary}>
 	<main id="main" class="container article">
 		<a class="back-link" href="/#projects">← Projects</a>
-		<span class="feature-eyebrow">{data.organization} · {data.years}</span>
 		<h1 class="article-title">{data.title}</h1>
-		<p class="article-meta">{data.role}</p>
+		<p class="article-meta">{data.role} · {data.organization} · {data.years}</p>
 		{data.tools.length > 0 && <p class="tag-list">{data.tools.map((tool) => <span class="tag">{tool}</span>)}</p>}
 		<div class="prose"><Content /></div>
 		{data.url && <p><a class="button button-primary" href={data.url}>Visit {data.organization}</a></p>}

@@ -9,12 +9,12 @@ const [dissertation] = await getCollection('dissertation');
 		<section class="sections">
 			<h2 class="section-title">Dissertation</h2>
 			<article class="feature-card">
-				<span class="feature-eyebrow">
-					{dissertation.data.institution} · {dissertation.data.conferred.getUTCFullYear()}
-				</span>
 				<h3 class="feature-title">
 					<a href="/research/dissertation/">{dissertation.data.title}</a>
 				</h3>
+				<span class="feature-meta">
+					{dissertation.data.degree} · {dissertation.data.institution} · {dissertation.data.conferred.getUTCFullYear()}
+				</span>
 				<p>{dissertation.data.summary}</p>
 				<a class="feature-link" href="/research/dissertation/">Read the abstract →</a>
 			</article>
