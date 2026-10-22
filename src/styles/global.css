@@ -16,6 +16,8 @@
 	--radius: 8px;
 	--transition: 0.3s ease;
 	--container-max: 1000px;
+	/* Comfortable line length for running text. */
+	--measure: 70ch;
 }
 
 /* Dark palette: follows the system setting unless the toggle has set data-theme. */
@@ -27,6 +29,7 @@
 		--color-text-secondary: #A6A9B3;
 		--color-card-bg: #1F232C;
 		--color-timeline-line: #343945;
+		--color-on-accent: #15181F;
 		--color-shadow: rgba(0, 0, 0, 0.35);
 		--color-shadow-strong: rgba(0, 0, 0, 0.5);
 		color-scheme: dark;
@@ -40,6 +43,7 @@
 	--color-text-secondary: #A6A9B3;
 	--color-card-bg: #1F232C;
 	--color-timeline-line: #343945;
+	--color-on-accent: #15181F;
 	--color-shadow: rgba(0, 0, 0, 0.35);
 	--color-shadow-strong: rgba(0, 0, 0, 0.5);
 	color-scheme: dark;
@@ -53,6 +57,11 @@
 
 html {
 	scroll-behavior: smooth;
+}
+
+::selection {
+	background-color: color-mix(in srgb, var(--color-accent) 25%, transparent);
+	color: var(--color-text);
 }
 
 body {
@@ -75,6 +84,11 @@ h1, h2, h3 {
 	font-family: var(--font-heading);
 	font-weight: 400;
 	color: var(--color-text);
+	text-wrap: balance;
+}
+
+p {
+	text-wrap: pretty;
 }
 
 h1 {
@@ -161,27 +175,37 @@ a:hover {
 	margin-bottom: 12px;
 }
 
-.hero .email {
+.hero .contact {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	gap: 4px 8px;
+	gap: 4px 12px;
+	list-style: none;
 	font-size: 15px;
 	color: var(--color-text-secondary);
 	margin-bottom: 20px;
 }
 
-.hero .email .email-link {
+.hero .contact li {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.hero .contact li + li::before {
+	content: '';
+	width: 1px;
+	height: 14px;
+	background-color: var(--color-timeline-line);
+}
+
+.hero .contact .email-link {
 	display: inline-block;
 	padding: 6px 0;
 }
 
-.hero .email a {
-	color: var(--color-accent);
-}
-
-.hero .email a:hover {
-	color: var(--color-text);
+.hero .contact-social {
+	gap: 4px;
 }
 
 .hero .social {
@@ -190,7 +214,6 @@ a:hover {
 	justify-content: center;
 	width: 32px;
 	height: 32px;
-	margin-left: 4px;
 	font-size: 20px;
 	color: var(--color-accent);
 	transition: color var(--transition), transform var(--transition);
@@ -237,7 +260,7 @@ a:hover {
 }
 
 .about-me p {
-	max-width: 800px;
+	max-width: var(--measure);
 	line-height: 1.7;
 	margin-bottom: 12px;
 }
@@ -245,16 +268,6 @@ a:hover {
 .sections {
 	padding: 40px 0;
 }
-
-
-
-
-
-
-
-
-
-
 
 .card-container {
 	padding: 40px 0;
@@ -317,6 +330,7 @@ a:hover {
 .ledger-label {
 	font-size: 13px;
 	font-weight: 600;
+	font-variant-numeric: tabular-nums;
 	letter-spacing: 0.02em;
 	text-align: right;
 	white-space: nowrap;
@@ -433,6 +447,7 @@ a:hover {
 .tl-date {
 	font-size: 13px;
 	font-weight: 600;
+	font-variant-numeric: tabular-nums;
 	letter-spacing: 0.02em;
 	text-align: right;
 	color: var(--color-accent);
@@ -511,7 +526,7 @@ a:hover {
 
 .tl-description {
 	margin-top: 4px;
-	max-width: 640px;
+	max-width: var(--measure);
 	font-size: 14px;
 	line-height: 1.6;
 	color: var(--color-text-secondary);
@@ -536,11 +551,19 @@ a:hover {
 }
 
 .award-details summary::before {
-	content: '+ ';
+	content: '';
+	display: inline-block;
+	width: 7px;
+	height: 7px;
+	margin: 0 10px 2px 2px;
+	border-right: 1.5px solid currentColor;
+	border-bottom: 1.5px solid currentColor;
+	transform: rotate(-45deg);
+	transition: transform var(--transition);
 }
 
 .award-details[open] summary::before {
-	content: '− ';
+	transform: rotate(45deg);
 }
 
 .award-details summary:hover {
@@ -714,24 +737,20 @@ button:focus-visible {
 .feature-card {
 	padding: 28px 32px;
 	background-color: var(--color-card-bg);
-	border-left: 4px solid var(--color-accent);
 	border-radius: var(--radius);
 }
 
-.feature-eyebrow {
+.feature-meta {
 	display: block;
-	font-size: 13px;
-	font-weight: 600;
-	letter-spacing: 0.04em;
-	text-transform: uppercase;
-	color: var(--color-accent);
-	margin-bottom: 8px;
+	font-size: 14px;
+	color: var(--color-text-secondary);
+	margin-bottom: 12px;
 }
 
 .feature-title {
 	font-size: 24px;
 	line-height: 1.3;
-	margin-bottom: 12px;
+	margin-bottom: 4px;
 }
 
 .feature-title a {
@@ -743,7 +762,7 @@ button:focus-visible {
 }
 
 .feature-card p {
-	max-width: 760px;
+	max-width: var(--measure);
 	color: var(--color-text-secondary);
 	margin-bottom: 16px;
 }
@@ -785,6 +804,7 @@ button:focus-visible {
 }
 
 .prose p {
+	max-width: var(--measure);
 	line-height: 1.8;
 	margin-bottom: 20px;
 }
@@ -860,7 +880,6 @@ button:focus-visible {
 	padding: 16px 18px;
 	margin: 0;
 	background-color: var(--color-card-bg);
-	border-top: 3px solid var(--color-accent);
 	border-radius: var(--radius);
 	font-size: 15px;
 	line-height: 1.55;
@@ -892,6 +911,7 @@ button:focus-visible {
 	background-color: var(--color-card-bg);
 	border-radius: var(--radius);
 	font-size: 15px;
+	overflow-wrap: anywhere;
 }
 
 .chapter-list {
@@ -1011,7 +1031,7 @@ a.tag:hover {
 .prose blockquote {
 	margin: 0 0 20px;
 	padding: 4px 20px;
-	border-left: 3px solid var(--color-accent);
+	border-left: 1px solid var(--color-timeline-line);
 	color: var(--color-text-secondary);
 }
 
@@ -1221,7 +1241,15 @@ a.tag:hover {
 	.hero .lead {
 		font-size: 18px;
 	}
-	
+
+	.hero .contact li {
+		width: 100%;
+	}
+
+	.hero .contact li + li::before {
+		display: none;
+	}
+
 	.cards {
 		grid-template-columns: 1fr;
 	}
@@ -1339,26 +1367,6 @@ a.tag:hover {
 		gap: 0;
 	}
 }
-
-@keyframes fadeIn {
-	from {
-		opacity: 0;
-		transform: translateY(10px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-.hero, .sections, .card-container {
-	animation: fadeIn 0.5s ease forwards;
-}
-
-.card-container {
-	animation-delay: 0.1s;
-}
-
 
 @media (prefers-reduced-motion: reduce) {
 	*, *::before, *::after {

@@ -11,8 +11,8 @@ const projects = await getPublishedProjects();
 			<div class="cards">
 				{projects.map(({ id, data }) => (
 					<article class="card">
-						<span class="feature-eyebrow">{data.organization} · {data.years}</span>
 						<h3 class="card-title"><a href={`/projects/${id}/`}>{data.title}</a></h3>
+						<span class="feature-meta">{data.organization} · {data.years}</span>
 						<p class="card-meta">{data.summary}</p>
 					</article>
 				))}

@@ -15,7 +15,6 @@ const committee = data.committee.map((m) => (m.role ? `${m.name} (${m.role})` : 
 <Base title={`${data.title} | ${profile.name}`} description={data.summary}>
 	<main id="main" class="container article">
 		<a class="back-link" href="/#research">← Research</a>
-		<span class="feature-eyebrow">Doctoral dissertation</span>
 		<h1 class="article-title">{data.title}</h1>
 		<p class="article-meta">
 			{data.degree} · {data.institution} · Defended {conferred}<br />
