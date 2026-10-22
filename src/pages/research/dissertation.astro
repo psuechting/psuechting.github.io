@@ -21,7 +21,7 @@ const committee = data.committee.map((m) => (m.role ? `${m.name} (${m.role})` : 
 			{data.degree} · {data.institution} · Defended {conferred}<br />
 			Committee: {committee}
 		</p>
-		{data.url && <p class="hero-actions"><a class="button button-primary" href={data.url}>Read the full dissertation</a><span class="article-meta">Open access on ProQuest</span></p>}
+		{data.url && <p class="hero-actions"><a class="button button-primary" href={data.url}>Read the full dissertation</a><span class="button-note">Open access on ProQuest</span></p>}
 
 		<h2 class="section-title">Abstract</h2>
 		<div class="prose"><Content /></div>

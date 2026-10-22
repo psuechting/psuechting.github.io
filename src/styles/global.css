@@ -665,8 +665,15 @@ a:hover {
 .hero-actions {
 	display: flex;
 	flex-wrap: wrap;
+	align-items: center;
 	gap: 12px;
 	margin-bottom: 24px;
+}
+
+/* Short note sitting beside a button, e.g. "Open access on ProQuest" */
+.button-note {
+	font-size: 15px;
+	color: var(--color-text-secondary);
 }
 
 .button {
