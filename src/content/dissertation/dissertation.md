@@ -3,6 +3,8 @@ title: Organizational Structure, Environmental Justice, and the Geography of the
 degree: Ph.D., Environmental Sciences, Studies, and Policy
 institution: University of Oregon
 conferred: 2026-08-17
+url: https://www.proquest.com/docview/3402075510
+proquestNumber: '32864314'
 summary: >-
   Who bears the burden of fossil-fuel electricity generation, and who receives the benefits of what
   is replacing it? Three analyses of U.S. power plants find that organizational structure and

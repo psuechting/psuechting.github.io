@@ -54,7 +54,10 @@ const interests = (await getCollection('interests')).sort(byOrder);
 						<div>
 							<strong>{data.degree}</strong>, {data.institution}, {data.location}
 							{dissertation && data.degree.startsWith('Ph.D') && (
-								<div class="cv-detail">Dissertation: <em>{dissertation.data.title}</em></div>
+								<div class="cv-detail">
+									Dissertation: <em>{dissertation.data.title}</em>
+									{dissertation.data.url && <> · <a href={dissertation.data.url}>ProQuest</a></>}
+								</div>
 							)}
 						</div>
 					</div>
