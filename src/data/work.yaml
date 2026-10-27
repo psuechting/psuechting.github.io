@@ -7,6 +7,11 @@
   start: 2025-10
   end: present
   location: Eugene, OR
+  tools:
+    - Airtable
+    - Hustle
+    - Action Network
+    - Custom software & API integrations
   description: >-
     Responsible for the construction, implementation, and administration of individualized local
     databases customized to local political organizing contexts. Responsible for the design of
@@ -19,6 +24,11 @@
   start: 2024-03
   end: 2025-10
   location: Remote
+  tools:
+    - Airtable
+    - Hustle
+    - Action Network
+    - Custom software & API integrations
   description: >-
     Informational systems design for membership management, organizing, and power-building and
     bargaining unit analytics.
@@ -30,6 +40,9 @@
   start: 2023-10
   end: present
   location: Remote
+  tools:
+    - Airtable
+    - AI-assisted web scraping
   description: >-
     Designed and built the information architecture behind CFS's climate funding intelligence platform: a relational database that turns hundreds of scraped leads a day into a curated library of nearly 10,000 climate R&D funding opportunities, delivered to clients through a portal and since developed into a commercial product.
 
@@ -50,6 +63,8 @@
   start: 2018-07
   end: 2019-07
   location: Boston, MA
+  tools:
+    - Salesforce
   description: >-
     Ran data and campaign analytics across the organization's campaigns challenging corporate
     influence on climate and public-health policy; targets included GE, Philip Morris, Exxon Mobil
@@ -62,6 +77,8 @@
   start: 2017-02
   end: 2018-07
   location: Boston, MA
+  tools:
+    - Salesforce
   description: >-
     Managed membership data and member engagement for an international nonprofit challenging
     corporate influence on climate and public-health policy.

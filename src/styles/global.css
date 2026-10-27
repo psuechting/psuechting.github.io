@@ -567,6 +567,10 @@ a:hover {
 	content: '· ';
 }
 
+.tl-tools {
+	margin-top: 10px;
+}
+
 .tl-description {
 	margin-top: 4px;
 	max-width: var(--measure);

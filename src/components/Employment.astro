@@ -46,6 +46,9 @@ const groupRange = (roles: Job[]) => {
 									<span class="tl-location">{data.location}</span>
 								</p>
 								<p class="tl-description">{data.description}</p>
+								{data.tools.length > 0 && (
+									<ul class="chips tl-tools" aria-label="Tools">{data.tools.map((tool) => <li class="tag">{tool}</li>)}</ul>
+								)}
 							</div>
 						</div>
 					))}
