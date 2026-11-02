@@ -9,7 +9,7 @@ const DIST = new URL('../dist/', import.meta.url).pathname;
 const TYPES = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml' };
 const DOCS = [
 	{ path: '/cv/', file: 'peter-suechting-cv.pdf', margin: '0.5in 0.65in' },
-	{ path: '/resume/', file: 'peter-suechting-resume.pdf', margin: '0.3in 0.5in' },
+	{ path: '/resume/', file: 'peter-suechting-resume.pdf', margin: '0.25in 0.45in' },
 ];
 
 // Serve dist/ so absolute asset paths (/_astro/...) resolve.
