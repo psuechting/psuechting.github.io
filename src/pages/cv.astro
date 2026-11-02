@@ -30,18 +30,11 @@ const interests = (await getCollection('interests')).sort(byOrder);
 			<h1>{profile.name}, {profile.honorific}</h1>
 			<p>{profile.title}</p>
 			<p class="cv-contact">
-				{
-					[
-						...profile.emails.map((e) => ({ email: e.address })),
-						{ text: 'psuechting.github.io' },
-						...profile.social.map((s) => ({ text: s.url.replace(/^https:\/\/(www\.)?/, '') })),
-					].map((item, i) => (
-						<>
-							{i > 0 && ' · '}
-							<span>{'email' in item ? <Email address={item.email} /> : item.text}</span>
-						</>
-					))
-				}
+				{profile.emails.map((e) => <span><Email address={e.address} /></span>)}
+				<span>psuechting.github.io</span>
+			</p>
+			<p class="cv-contact">
+				{profile.social.map((s) => <span>{s.url.replace(/^https:\/\/(www\.)?/, '')}</span>)}
 			</p>
 		</header>
 
@@ -92,7 +85,7 @@ const interests = (await getCollection('interests')).sort(byOrder);
 			}
 		</section>
 
-		<section>
+		<section class="cv-section-long">
 			<h2>Professional Experience</h2>
 			{
 				work.map(({ data }) => (
