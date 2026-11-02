@@ -95,7 +95,7 @@ const otherDegrees = education.filter((e) => e !== phd);
 				</div>
 			)}
 			<p class="resume-line">{otherDegrees.map(({ data }, i) => <>{i > 0 && ' · '}<strong>{data.degree}, {data.institution}</strong> · {data.year}</>)}</p>
-			<p class="resume-line"><strong>Research assistant</strong> · {research.map(({ data }, i) => <>{i > 0 && ' · '}{data.department} ({data.pi}){data.summary && <>: {data.summary}</>}</>)}</p>
+			<p class="resume-line"><strong>Research assistant</strong> · {research.map(({ data }, i) => <>{i > 0 && ' · '}{data.pi} ({data.department.split(' ')[0]}){data.summary && <>: {data.summary}</>}</>)}</p>
 			{publications.filter((p) => p.data.short).map(({ data }) => <p class="resume-line"><strong>Publication</strong> · {data.short}</p>)}
 			<p class="resume-line"><strong>Fellowships</strong> · {awards.map((a) => a.data.resumeLabel ?? a.data.title).join(' · ')}</p>
 		</section>
