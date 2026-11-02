@@ -6,11 +6,12 @@ type Job = (typeof jobs)[number];
 
 const jobs = (await getCollection('work')).sort((a, b) => b.data.start.localeCompare(a.data.start));
 
-// Consecutive roles at the same employer become one entry with the roles nested.
+// All roles at the same employer become one entry (roles nested, newest first), placed where the
+// newest role falls in the chronology, even when another job sits between them in time.
 const groups: { employer: string; url: string; roles: Job[] }[] = [];
 for (const job of jobs) {
-	const last = groups.at(-1);
-	if (last && last.employer === job.data.employer) last.roles.push(job);
+	const existing = groups.find((g) => g.employer === job.data.employer);
+	if (existing) existing.roles.push(job);
 	else groups.push({ employer: job.data.employer, url: job.data.employerUrl, roles: [job] });
 }
 

@@ -1,10 +1,13 @@
 - id: umd-hadden
   order: 1
-  duration: 2+ years
+  duration: Nov 2020 – 2021
   department: UMD Dept. of Public Policy & Government
   pi: Dr. Jennifer Hadden
   role: Research Assistant
   summary: social reception of energy in the developing world; oil and gas firm behavior toward decarbonization
+  details: >-
+    Research on civil-society participation in climate policy-making in the EU and UN, and on energy
+    development project financing using media, government documents, and energy-industry sources.
   projects:
     - name: Understanding the social reception of energy in the developing world
       url: https://www.nsf.gov/awardsearch/showAward?AWD_ID=1949486&HistoricalAwards=false

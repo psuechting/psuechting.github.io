@@ -16,6 +16,7 @@ const research = (await getCollection('research')).sort(byOrder);
 const work = (await getCollection('work')).sort((a, b) => b.data.start.localeCompare(a.data.start));
 const awards = (await getCollection('awards')).sort(byOrder);
 const service = (await getCollection('service')).sort(byOrder);
+const teaching = (await getCollection('teaching')).sort(byOrder);
 const skills = (await getCollection('skills')).sort(byOrder);
 const interests = (await getCollection('interests')).sort(byOrder);
 ---
@@ -46,6 +47,8 @@ const interests = (await getCollection('interests')).sort(byOrder);
 						<span class="cv-date">{data.year}</span>
 						<div>
 							<strong>{data.degree}</strong>, {data.institution}, {data.location}
+							{data.honors && <div class="cv-detail">{data.honors}</div>}
+							{data.thesis && <div class="cv-detail">Thesis: <em>{data.thesis}</em></div>}
 							{dissertation && data.degree.startsWith('Ph.D') && (
 								<div class="cv-detail">
 									Dissertation: <em>{dissertation.data.title}</em>
@@ -78,7 +81,24 @@ const interests = (await getCollection('interests')).sort(byOrder);
 						<span class="cv-date">{data.duration.replace(/^\+\s*/, '')}</span>
 						<div>
 							<strong>{data.role}</strong>, {data.department} (PI: {data.pi})
+							{data.details && <div class="cv-detail">{data.details}</div>}
 							<ul>{data.projects.map((p) => <li>{p.name}</li>)}</ul>
+						</div>
+					</div>
+				))
+			}
+		</section>
+
+		<section>
+			<h2>Teaching</h2>
+			{
+				teaching.map(({ data }) => (
+					<div class="cv-row">
+						<span class="cv-date">{data.years}</span>
+						<div>
+							<strong>{data.role}</strong>, {data.department}
+							<div class="cv-detail">{data.description}</div>
+							{data.courses.length > 0 && <ul>{data.courses.map((c) => <li>{c}</li>)}</ul>}
 						</div>
 					</div>
 				))

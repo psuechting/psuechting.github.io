@@ -23,7 +23,7 @@
   employer: AFT-Oregon
   employerUrl: https://or.aft.org/
   title: Database Developer
-  start: 2024-03
+  start: '2022'
   end: 2025-10
   location: Remote
   tools:
@@ -35,8 +35,8 @@
     - "Built the pipelines around the local databases: automated import of administrative data into each local's schema, registration and member-interest forms, exports to Hustle and Action Network, and a phonebanking loop that returns call outcomes."
     - "Systems supported membership drives and the first community college faculty and classified staff strike in Oregon's history."
   description: >-
-    Informational systems design for membership management, organizing, and power-building and
-    bargaining unit analytics.
+    Built custom databases and information systems for local labor federations on a contract basis;
+    the work grew into a statewide contract with AFT-Oregon and then the full-time Data Specialist role.
 
 - id: cfs-funding-research-analyst
   employer: Climate Finance Solutions
@@ -74,6 +74,9 @@
   location: Boston, MA
   tools:
     - Salesforce
+    - Salsa
+    - Microsoft Access
+    - Google Data Studio
   bullets:
     - "Ran the organization's data and analysis function and its Salesforce member database; produced reporting for campaign, fundraising and leadership decisions."
   description: >-
@@ -90,6 +93,7 @@
   location: Boston, MA
   tools:
     - Salesforce
+    - Salsa
   bullets:
     - "Managed membership operations and the systems behind them: CRM design, data hygiene, segmentation."
     - "Campaigns targeted GE, Philip Morris, Exxon Mobil and Veolia."
@@ -102,7 +106,7 @@
   employerUrl: https://www.nextgenclimate.org
   title: State Operations Director
   start: 2016-08
-  end: 2016-12
+  end: 2016-11
   location: Manchester, NH
   bullets:
     - "Directed statewide field operations, staff and data for a climate-focused electoral program (budget $1.5M)."
@@ -114,7 +118,7 @@
   employerUrl: https://www.cfpir.org/community-voters-project
   title: Canvass Office Director
   start: 2016-04
-  end: 2016-08
+  end: 2016-06
   location: Pueblo, CO
   bullets:
     - "Opened and ran a canvass office registering and turning out voters in underserved communities."
