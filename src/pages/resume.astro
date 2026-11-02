@@ -58,7 +58,7 @@ const otherDegrees = education.filter((e) => e !== phd);
 				<tbody>
 					{skills.map(({ data }) => (
 						<tr>
-							<th scope="row">{data.title}{data.years && <span class="resume-years"> ({data.years.replace(' years', ' yrs')})</span>}</th>
+							<th scope="row">{data.title}</th>
 							<td>{data.items.join('; ')}</td>
 						</tr>
 					))}
@@ -87,8 +87,7 @@ const otherDegrees = education.filter((e) => e !== phd);
 					<p class="resume-role-head"><strong>{phd.data.degree.replace('Ph.D., ', 'Ph.D., ')}, {phd.data.institution}</strong> · {phd.data.year}</p>
 					{dissertation && (
 						<p class="resume-role-sub">
-							Dissertation: <em>{dissertation.data.title}</em>
-							{dissertation.data.url && <> (<a href={dissertation.data.url}>open access, ProQuest</a>)</>}
+							Dissertation: <em>{dissertation.data.url ? <a href={dissertation.data.url}>{dissertation.data.title}</a> : dissertation.data.title}</em>
 						</p>
 					)}
 					<ul class="resume-bullets">{resume.dissertationBullets.map((b) => <li>{b}</li>)}</ul>

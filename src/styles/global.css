@@ -1308,17 +1308,12 @@ a.tag:hover {
 }
 
 .resume-skills th {
-	width: 1.3in;
+	width: 1.6in;
+	white-space: nowrap;
 	padding-right: 10px;
 	font-weight: 600;
 }
 
-.resume-years {
-	font-family: var(--font-mono);
-	font-weight: 400;
-	font-size: 8.5pt;
-	color: var(--color-text-secondary);
-}
 
 .resume-role {
 	margin-bottom: 3px;
