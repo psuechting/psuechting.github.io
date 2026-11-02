@@ -1207,8 +1207,9 @@ a.tag:hover {
 
 .cv-row {
 	display: grid;
-	grid-template-columns: 1.45in 1fr;
-	gap: 12px;
+	/* Wide enough for the longest mono date range ("Sept 2019 – Aug 2026") without wrapping or overlapping. */
+	grid-template-columns: 1.7in minmax(0, 1fr);
+	gap: 10px;
 	margin-bottom: 5px;
 	break-inside: avoid;
 }
@@ -1225,6 +1226,20 @@ a.tag:hover {
 
 .cv-contact span {
 	white-space: nowrap;
+}
+
+/* Two deliberate lines (contact, then profiles) so a separator never dangles at a line end.
+   Separators are CSS so narrow screens can stack the items instead. */
+.cv-contact {
+	margin: 0;
+}
+
+.cv-contact span + span::before {
+	content: ' · ';
+}
+
+.cv-contact + .cv-contact {
+	margin-top: 2px;
 }
 
 .cv-detail {
@@ -1253,6 +1268,11 @@ a.tag:hover {
 
 	.cv a {
 		color: inherit;
+	}
+
+	/* Keep short sections whole; only Professional Experience is long enough to need splitting. */
+	.cv section:not(.cv-section-long) {
+		break-inside: avoid;
 	}
 }
 
@@ -1410,6 +1430,14 @@ a.tag:hover {
 	.cv-row {
 		grid-template-columns: 1fr;
 		gap: 0;
+	}
+
+	.cv-contact span {
+		display: block;
+	}
+
+	.cv-contact span + span::before {
+		content: none;
 	}
 }
 
