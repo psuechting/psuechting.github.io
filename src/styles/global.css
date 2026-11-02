@@ -1183,8 +1183,8 @@ a.tag:hover {
 	padding: 0.6in 0.7in;
 	background-color: #fff;
 	box-shadow: 0 4px 24px var(--color-shadow);
-	font-size: 10.5pt;
-	line-height: 1.45;
+	font-size: 10pt;
+	line-height: 1.4;
 }
 
 .cv-header {

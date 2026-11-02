@@ -11,9 +11,10 @@ const work = defineCollection({
 		employer: z.string(),
 		employerUrl: z.url(),
 		title: z.string(),
-		start: z.string().regex(/^\d{4}-\d{2}$/, 'Use YYYY-MM'),
+		// YYYY-MM, or YYYY when only the year is known.
+		start: z.string().regex(/^\d{4}(-\d{2})?$/, 'Use YYYY-MM or YYYY'),
 		// YYYY-MM, or "present" for a current role. Omit if unknown (only the start date is shown).
-		end: z.union([z.string().regex(/^\d{4}-\d{2}$/, 'Use YYYY-MM'), z.literal('present')]).optional(),
+		end: z.union([z.string().regex(/^\d{4}(-\d{2})?$/, 'Use YYYY-MM or YYYY'), z.literal('present')]).optional(),
 		location: z.string(),
 		description: z.string(),
 		// Tools used in this role (shown as chips on the timeline and a line on the CV).
@@ -30,6 +31,8 @@ const education = defineCollection({
 		institution: z.string(),
 		location: z.string(),
 		year: z.number(),
+		honors: z.string().optional(),
+		thesis: z.string().optional(),
 	}),
 });
 
@@ -89,6 +92,21 @@ const research = defineCollection({
 		projects: z.array(z.object({ name: z.string(), url: z.url() })),
 		// One-line topic summary for the résumé.
 		summary: z.string().optional(),
+		// Fuller description for the CV.
+		details: z.string().optional(),
+	}),
+});
+
+const teaching = defineCollection({
+	loader: file('src/data/teaching.yaml'),
+	schema: z.object({
+		order: z.number(),
+		years: z.string(),
+		role: z.string(),
+		department: z.string(),
+		description: z.string(),
+		// Course titles, once compiled.
+		courses: z.array(z.string()).default([]),
 	}),
 });
 
@@ -169,6 +187,7 @@ export const collections = {
 	awards,
 	research,
 	service,
+	teaching,
 	bio,
 	dissertation,
 	projects,

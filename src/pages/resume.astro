@@ -13,11 +13,11 @@ const byOrder = <T extends { data: { order: number } }>(a: T, b: T) => a.data.or
 // Only roles with résumé bullets appear under Experience (the doctorate sits under Research and education).
 const jobs = (await getCollection('work', ({ data }) => data.bullets.length > 0)).sort((a, b) => b.data.start.localeCompare(a.data.start));
 type Job = (typeof jobs)[number];
-// Consecutive roles at the same employer share one entry, newest role first.
+// All roles at the same employer share one entry (newest first), placed at the newest role's position.
 const groups: { roles: Job[] }[] = [];
 for (const job of jobs) {
-	const last = groups.at(-1);
-	if (last && last.roles[0].data.employer === job.data.employer) last.roles.push(job);
+	const existing = groups.find((g) => g.roles[0].data.employer === job.data.employer);
+	if (existing) existing.roles.push(job);
 	else groups.push({ roles: [job] });
 }
 

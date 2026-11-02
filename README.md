@@ -21,6 +21,7 @@ Most content is plain data — edit these files, no code required:
 | Publications | `src/data/publications.yaml` |
 | Fellowships & awards | `src/data/awards.yaml` |
 | Research experience | `src/data/research.yaml` |
+| Teaching (CV only; add course titles to `courses`) | `src/data/teaching.yaml` |
 | Professional service | `src/data/service.yaml` |
 
 To write a post, copy `src/content/posts/hello.md`, rename it (the filename is the URL), fill in the front matter, and remove `draft: true`. The Writing section, nav link, tag pages, and RSS feed (`/rss.xml`) all appear automatically once at least one post is published.
