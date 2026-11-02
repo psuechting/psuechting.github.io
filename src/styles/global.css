@@ -158,6 +158,7 @@ a:hover {
 .citation a,
 .cv-contact a,
 .cv-detail a,
+.resume-role-sub a,
 .article-meta a,
 .ledger-meta a {
 	text-decoration: underline;
@@ -166,9 +167,10 @@ a:hover {
 	padding: 4px 0;
 }
 
-/* The CV's smaller type needs a little more to reach 24px. */
+/* The CV's and résumé's smaller type needs a little more to reach 24px. */
 .cv-contact a,
-.cv-detail a {
+.cv-detail a,
+.resume-role-sub a {
 	padding: 5px 0;
 }
 
@@ -1153,6 +1155,12 @@ a.tag:hover {
 }
 
 /* CV page */
+.cv-toolbar-actions {
+	display: inline-flex;
+	align-items: center;
+	gap: 16px;
+}
+
 .cv-toolbar {
 	display: flex;
 	justify-content: space-between;
@@ -1254,12 +1262,98 @@ a.tag:hover {
 	padding-left: 18px;
 }
 
+/* Résumé: one Letter page, denser than the CV */
+.resume {
+	font-size: 9pt;
+	line-height: 1.22;
+}
+
+.resume .cv-header {
+	margin-bottom: 4px;
+}
+
+.resume .cv-header h1 {
+	font-size: 17pt;
+	margin-bottom: 0;
+}
+
+.resume .cv-header p {
+	margin: 0;
+}
+
+.resume section {
+	margin-bottom: 3px;
+}
+
+.resume h2 {
+	font-size: 10.5pt;
+	margin-bottom: 2px;
+	padding-bottom: 1px;
+}
+
+.resume-summary {
+	margin-bottom: 4px;
+}
+
+.resume-skills {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.resume-skills th,
+.resume-skills td {
+	padding: 1px 0;
+	vertical-align: top;
+	text-align: left;
+}
+
+.resume-skills th {
+	width: 1.6in;
+	white-space: nowrap;
+	padding-right: 10px;
+	font-weight: 600;
+}
+
+
+.resume-role {
+	margin-bottom: 3px;
+	break-inside: avoid;
+}
+
+.resume-role-head,
+.resume-role-sub {
+	margin: 0;
+}
+
+.resume-role-sub {
+	color: var(--color-text-secondary);
+}
+
+.resume-bullets {
+	margin: 1px 0 0;
+	padding-left: 14px;
+}
+
+.resume-bullets li {
+	margin-bottom: 0;
+}
+
+.resume-line {
+	margin: 0 0 1px;
+}
+
 @media print {
 	body {
 		background: #fff;
 	}
 
-	.cv-toolbar {
+	.cv-toolbar-actions {
+	display: inline-flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.cv-toolbar {
 		display: none;
 	}
 

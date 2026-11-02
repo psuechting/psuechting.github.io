@@ -1,0 +1,112 @@
+---
+// One-page industry résumé, generated from the same data as the home page and CV.
+// scripts/build-cv-pdf.mjs prints this page to /peter-suechting-resume.pdf after each build.
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Email from '../components/Email.astro';
+import { profile } from '../data/profile';
+import { resume } from '../data/resume';
+import { formatRange } from '../lib/format';
+
+const byOrder = <T extends { data: { order: number } }>(a: T, b: T) => a.data.order - b.data.order;
+
+// Only roles with résumé bullets appear under Experience (the doctorate sits under Research and education).
+const jobs = (await getCollection('work', ({ data }) => data.bullets.length > 0)).sort((a, b) => b.data.start.localeCompare(a.data.start));
+type Job = (typeof jobs)[number];
+// Consecutive roles at the same employer share one entry, newest role first.
+const groups: { roles: Job[] }[] = [];
+for (const job of jobs) {
+	const last = groups.at(-1);
+	if (last && last.roles[0].data.employer === job.data.employer) last.roles.push(job);
+	else groups.push({ roles: [job] });
+}
+
+const skills = (await getCollection('skills')).sort(byOrder);
+const education = (await getCollection('education')).sort((a, b) => b.data.year - a.data.year);
+const [dissertation] = await getCollection('dissertation');
+const research = (await getCollection('research')).sort(byOrder);
+const publications = (await getCollection('publications')).sort((a, b) => b.data.year - a.data.year);
+const awards = (await getCollection('awards')).sort(byOrder);
+const service = (await getCollection('service')).sort(byOrder);
+const personalEmail = profile.emails.find((e) => e.label === 'Personal') ?? profile.emails[0];
+const linkedin = profile.social.find((s) => s.platform === 'linkedin');
+const phd = education.find((e) => e.data.degree.startsWith('Ph.D'));
+const otherDegrees = education.filter((e) => e !== phd);
+---
+
+<Base title={`Résumé | ${profile.name}, ${profile.honorific}`} description={resume.summary} nav={false}>
+	<nav class="cv-toolbar" aria-label="Résumé page">
+		<a href="/">← Back to site</a>
+		<span class="cv-toolbar-actions"><a href="/cv/">Academic CV</a><a class="button button-primary" href={profile.resumePath}>Download PDF</a></span>
+	</nav>
+	<main id="main" class="cv resume">
+		<header class="cv-header">
+			<h1>{profile.name}, {profile.honorific}</h1>
+			<p class="cv-contact">
+				<span>{profile.location}</span>
+				<span><Email address={personalEmail.address} /></span>
+				<span>psuechting.github.io</span>
+				{linkedin && <span>{linkedin.url.replace(/^https:\/\/(www\.)?/, '')}</span>}
+			</p>
+		</header>
+
+		<p class="resume-summary">{resume.summary}</p>
+
+		<section>
+			<h2>Core skills</h2>
+			<table class="resume-skills">
+				<tbody>
+					{skills.map(({ data }) => (
+						<tr>
+							<th scope="row">{data.title}</th>
+							<td>{data.items.join('; ')}</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</section>
+
+		<section class="cv-section-long">
+			<h2>Experience</h2>
+			{groups.map(({ roles }) => (
+				<div class="resume-role">
+					{roles.map(({ data }, i) => (
+						<p class={i === 0 ? 'resume-role-head' : 'resume-role-sub'}>
+							{i === 0 ? <strong>{data.title}, {data.employer}</strong> : <em>{data.title}</em>} · {data.location} · {formatRange(data.start, data.end)}
+						</p>
+					))}
+					<ul class="resume-bullets">{roles.flatMap((r) => r.data.bullets).map((b) => <li>{b}</li>)}</ul>
+				</div>
+			))}
+		</section>
+
+		<section>
+			<h2>Research and education</h2>
+			{phd && (
+				<div class="resume-role">
+					<p class="resume-role-head"><strong>{phd.data.degree.replace('Ph.D., ', 'Ph.D., ')}, {phd.data.institution}</strong> · {phd.data.year}</p>
+					{dissertation && (
+						<p class="resume-role-sub">
+							Dissertation: <em>{dissertation.data.url ? <a href={dissertation.data.url}>{dissertation.data.title}</a> : dissertation.data.title}</em>
+						</p>
+					)}
+					<ul class="resume-bullets">{resume.dissertationBullets.map((b) => <li>{b}</li>)}</ul>
+				</div>
+			)}
+			<p class="resume-line">{otherDegrees.map(({ data }, i) => <>{i > 0 && ' · '}<strong>{data.degree}, {data.institution}</strong> · {data.year}</>)}</p>
+			<p class="resume-line"><strong>Research assistant</strong> · {research.map(({ data }, i) => <>{i > 0 && ' · '}{data.pi} ({data.department.split(' ')[0]}){data.summary && <>: {data.summary}</>}</>)}</p>
+			{publications.filter((p) => p.data.short).map(({ data }) => <p class="resume-line"><strong>Publication</strong> · {data.short}</p>)}
+			<p class="resume-line"><strong>Fellowships</strong> · {awards.map((a) => a.data.resumeLabel ?? a.data.title).join(' · ')}</p>
+		</section>
+
+		<section>
+			<h2>Union service</h2>
+			{service.map(({ data }) => (
+				<div class="resume-role">
+					<p class="resume-role-head"><strong>{data.resumeTitle ?? `${data.role}, ${data.organization}`}</strong>{data.resumeYears && <> · {data.resumeYears}</>}</p>
+					{data.bullets.length > 0 && <ul class="resume-bullets">{data.bullets.map((b) => <li>{b}</li>)}</ul>}
+				</div>
+			))}
+		</section>
+	</main>
+</Base>

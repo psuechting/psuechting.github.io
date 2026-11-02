@@ -11,7 +11,7 @@ const skills = (await getCollection('skills')).sort((a, b) => a.data.order - b.d
 			skills.map(({ data }) => (
 				<div class="keyword-group">
 					<h3>{data.title}</h3>
-					<span class="keyword-years">{data.years}</span>
+					{data.years && <span class="keyword-years">{data.years}</span>}
 					<ul class="chips">{data.items.map((item) => <li class="tag">{item}</li>)}</ul>
 				</div>
 			))
