@@ -4,7 +4,7 @@ summary: >-
   Locally specified relational databases for union locals, replacing ad hoc spreadsheets and a
   national system with no local features, plus the automated pipelines that feed them and a
   federation-wide map of how the data moves.
-organization: AFT Oregon
+organization: AFT-Oregon
 role: Data Specialist
 years: 2024 – present
 tools:

@@ -18,6 +18,8 @@ const work = defineCollection({
 		description: z.string(),
 		// Tools used in this role (shown as chips on the timeline and a line on the CV).
 		tools: z.array(z.string()).default([]),
+		// Résumé bullets for this role (1–3). Not shown on the timeline.
+		bullets: z.array(z.string()).default([]),
 	}),
 });
 
@@ -35,7 +37,7 @@ const skills = defineCollection({
 	loader: file('src/data/skills.yaml'),
 	schema: z.object({
 		order: z.number(),
-		years: z.string(),
+		years: z.string().optional(),
 		title: z.string(),
 		items: z.array(z.string()),
 	}),
@@ -57,6 +59,8 @@ const publications = defineCollection({
 		citation: z.string(),
 		venue: z.string(),
 		url: z.url().optional(),
+		// One-line form for the résumé.
+		short: z.string().optional(),
 	}),
 });
 
@@ -69,6 +73,8 @@ const awards = defineCollection({
 		organization: z.string(),
 		url: z.url(),
 		description: z.string(),
+		// Compact form for the résumé, e.g. "Amherst Memorial Fellowship (2019–23)".
+		resumeLabel: z.string().optional(),
 	}),
 });
 
@@ -81,6 +87,8 @@ const research = defineCollection({
 		pi: z.string(),
 		role: z.string(),
 		projects: z.array(z.object({ name: z.string(), url: z.url() })),
+		// One-line topic summary for the résumé.
+		summary: z.string().optional(),
 	}),
 });
 
@@ -91,6 +99,10 @@ const service = defineCollection({
 		duration: z.string(),
 		organization: z.string(),
 		role: z.string(),
+		// Résumé rendering: compact title/years and bullets.
+		resumeTitle: z.string().optional(),
+		resumeYears: z.string().optional(),
+		bullets: z.array(z.string()).default([]),
 	}),
 });
 

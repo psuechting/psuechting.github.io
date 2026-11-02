@@ -2,6 +2,7 @@
   order: 1
   years: "AY '19/'20"
   title: Lokey Science Award
+  resumeLabel: Lokey Science Award, UO (2019/20)
   organization: University of Oregon, Division of Graduate Studies
   url: https://graduatestudies.uoregon.edu/funding/awards/lokey-graduate-science-awards
   description: >-
@@ -13,6 +14,7 @@
   order: 2
   years: "AY '19-'23"
   title: Amherst Memorial Fellowship
+  resumeLabel: Amherst Memorial Fellowship (2019–23)
   organization: Amherst College
   url: https://www.amherst.edu/academiclife/support/fellowships/amherst
   description: >-
@@ -25,6 +27,7 @@
   order: 3
   years: "AY '22/'23"
   title: Frédéric Bastiat Fellowship
+  resumeLabel: Frédéric Bastiat Fellowship, Mercatus Center (2022/23)
   organization: Mercatus Center @ George Mason University
   url: https://www.mercatus.org/students/frederic-bastiat-fellowship
   description: >-

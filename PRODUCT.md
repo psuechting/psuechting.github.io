@@ -35,7 +35,7 @@ The site's distinctive claim is the pairing itself: a Ph.D. researcher who also 
 - Astro static site, deployed to GitHub Pages by GitHub Actions on every push to `main`. The deploy workflow also builds the CV PDF.
 - Changes ship through short-lived branches and pull requests merged into `main`; `main` is never edited directly.
 - All content is data: YAML files in `src/data/`, Markdown collections in `src/content/`, and `src/data/profile.ts`. Every entry is validated against `src/content.config.ts` at build time. Components in `src/components/` render that data; all styling lives in `src/styles/global.css`.
-- Pages: home, `/about/` (full bio), `/research/dissertation/`, `/projects/<id>/` (two published), `/cv/` (printable, also rendered to PDF), `/writing/` with tag pages and RSS (one draft post, section hidden until a post is published), and a 404.
+- Pages: home, `/about/` (full bio), `/research/dissertation/`, `/projects/<id>/` (two published), `/cv/` (academic CV, printable, also rendered to PDF), `/resume/` (one-page industry résumé from the same data, also rendered to PDF; prose drafted on the "Résumé — site master" Notion page and mirrored into `src/data/resume.ts` and the `bullets` fields of `work.yaml`), `/writing/` with tag pages and RSS (one draft post, section hidden until a post is published), and a 404.
 - Light and dark themes: system preference by default, with a toggle in the nav that persists to local storage.
 - Fonts are IBM Plex Sans (headings and body) and IBM Plex Mono (dates, labels, chips) from Google Fonts. Palette: cool paper `#F5F8F7`, ink `#0E1F2B`, forest-green accent `#1B7A5A` (mint `#4FC995` in dark mode); every text/background pair meets 4.5:1. Icons are inline SVG; there is no icon library.
 - The `dissertation_project/` folder at the repo root is private Notion working files. It is not site content and must never be surfaced, linked, or used as evidence on the published site.
@@ -45,7 +45,7 @@ The site's distinctive claim is the pairing itself: a Ph.D. researcher who also 
 - **Status:** Ph.D. completed and conferred. All copy already reflects this; "candidate" framing anywhere is a regression.
 - **Current roles:** Data Specialist at AFT (since October 2025) and Funding Research Analyst at Climate Finance Solutions (since October 2023). Both show on the "Now" line in the header automatically from `work.yaml`.
 - Two email addresses (academic and personal) are displayed, obfuscated against harvesters by `Email.astro`; keep both.
-- The CV page and PDF are generated from the same data as the home page; there is no separate CV to maintain.
+- The CV page and PDF are generated from the same data as the home page; there is no separate CV to maintain. The one-page résumé at `/resume/` is generated the same way, with résumé-only prose in `src/data/resume.ts`.
 - **Undecided:** when the Writing section goes live (depends on publishing a first post).
 
 ## Brand Commitments

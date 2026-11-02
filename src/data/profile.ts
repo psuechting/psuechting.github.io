@@ -7,6 +7,8 @@ export const profile = {
 	tagline:
 		'I study how the energy transition redistributes environmental burdens, and I build the data systems that labor unions and climate organizations run on.',
 	cvPath: '/peter-suechting-cv.pdf',
+	resumePath: '/peter-suechting-resume.pdf',
+	location: 'Eugene, Oregon',
 	description:
 		'Peter Suechting, Ph.D. — researcher and analyst working on energy transitions, climate policy, and social movements, and builder of the data systems that labor unions and climate organizations run on.',
 	about:

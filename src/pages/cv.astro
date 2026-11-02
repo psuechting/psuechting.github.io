@@ -23,7 +23,7 @@ const interests = (await getCollection('interests')).sort(byOrder);
 <Base title={`CV | ${profile.name}, ${profile.honorific}`} nav={false}>
 	<nav class="cv-toolbar" aria-label="CV page">
 		<a href="/">← Back to site</a>
-		<a class="button button-primary" href={profile.cvPath}>Download PDF</a>
+		<span class="cv-toolbar-actions"><a href="/resume/">Résumé</a><a class="button button-primary" href={profile.cvPath}>Download PDF</a></span>
 	</nav>
 	<main id="main" class="cv">
 		<header class="cv-header">
@@ -133,7 +133,7 @@ const interests = (await getCollection('interests')).sort(byOrder);
 			{
 				skills.map(({ data }) => (
 					<div class="cv-row">
-						<span class="cv-date">{data.years.replace(/^\+\s*/, '')}</span>
+						<span class="cv-date">{data.years ?? ''}</span>
 						<div>
 							<strong>{data.title}</strong>: {data.items.join('; ')}
 						</div>

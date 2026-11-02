@@ -13,9 +13,10 @@ Most content is plain data — edit these files, no code required:
 | Dissertation (home page card + `/research/dissertation/`) | `src/content/dissertation/full-green-ahead.md` |
 | Projects (one Markdown file each; `draft: true` hides it) | `src/content/projects/` |
 | Writing (one Markdown file per post; `draft: true` hides it) | `src/content/posts/` |
-| Jobs (`end: present` for a current role) | `src/data/work.yaml` |
+| Jobs (`end: present` for a current role; `tools` and résumé `bullets` per role) | `src/data/work.yaml` |
+| Résumé-only prose (summary, dissertation bullets) | `src/data/resume.ts` |
 | Degrees | `src/data/education.yaml` |
-| Skills | `src/data/skills.yaml` |
+| Skills (six groups; shared by home page, CV and résumé) | `src/data/skills.yaml` |
 | Research interests | `src/data/interests.yaml` |
 | Publications | `src/data/publications.yaml` |
 | Fellowships & awards | `src/data/awards.yaml` |
@@ -34,7 +35,7 @@ Requires Node 22.12+.
 npm install
 npm run dev      # http://localhost:4321
 npm run build    # type-check + build to dist/
-npm run build:cv # print /cv/ to dist/peter-suechting-cv.pdf (after build)
+npm run build:cv # print /cv/ and /resume/ to PDFs in dist/ (after build)
 npm run build:og # regenerate public/og-image.png (the link-preview card) after changing name/title/tagline
 npm run preview  # serve the built site
 ```

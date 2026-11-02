@@ -1,47 +1,67 @@
+# Six skill groups, shared by the home page (chips), the CV and the résumé.
+# `years` is optional.
 - id: research-design
   order: 1
   years: 9+ years
-  title: Social scientific research design
+  title: Research design
   items:
-    - Literature review, contextualization & synthesis
-    - Concept mapping
+    - Quantitative, qualitative & mixed methods
+    - Literature reviews & landscape assessments
     - Hypothesis testing
-    - Data collection
-    - Quantitative & qualitative methodologies
-    - Nested analysis/multi-methodology
 
-- id: econometrics
+- id: econometrics-analysis
   order: 2
   years: 7+ years
-  title: Econometric techniques & statistical programming
+  title: Econometrics & analysis
   items:
-    - R/RStudio/Markdown & Latex
-    - Experiments
-    - Causal Inference
-    - Machine Learning
-    - Data Visualization
+    - R
+    - DuckDB
+    - Python
+    - Causal inference
+    - Panel methods
+    - Machine learning
+    - Data visualization
+    - LaTeX
+    - Quarto
+    - R Markdown
 
-- id: crm
+- id: databases-data-systems
   order: 3
-  years: 5+ years
-  title: CRM design, management
+  years: 7+ years
+  title: Databases & data systems
   items:
-    - AirTable
-    - Salesforce
-    - Salsa
-    - ActionNetwork
-    - Hustle
-    - Bespoke projects
-
-- id: enterprise-systems
-  order: 4
-  years: 5+ years
-  title: Enterprise Information Systems Development
-  items:
+    - Database design
     - Airtable
     - Salesforce
-    - JavaScript
-    - Python
-    - Database design & architecture
-    - API integration
-    - Data systems for organizing & mission-driven organizations
+    - SQL
+    - Supabase
+    - JavaScript & Python automation
+    - REST API integration
+    - CRM design for member organizations (Action Network, Salsa, Hustle)
+
+- id: industry-policy-data
+  order: 4
+  title: Industry & policy data
+  items:
+    - EIA-860/923
+    - EPA eGRID & CEMS
+    - American Community Survey
+    - BLS
+
+- id: policy-domains
+  order: 5
+  title: Policy domains
+  items:
+    - Power-sector regulation
+    - Grid, transmission & permitting reform
+    - Industrial policy
+    - Climate finance & public funding programs
+    - Emissions control
+    - Just transition
+
+- id: communication
+  order: 6
+  title: Communication
+  items:
+    - Briefs, reports & memos for organizers, funders, regulators & academic audiences
+    - Presenting technical findings to non-specialists
