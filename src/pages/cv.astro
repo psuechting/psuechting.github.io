@@ -93,6 +93,7 @@ const interests = (await getCollection('interests')).sort(byOrder);
 						<span class="cv-date">{formatRange(data.start, data.end)}</span>
 						<div>
 							<strong>{data.title}</strong>, {data.employer}, {data.location}
+							{data.tools.length > 0 && <div class="cv-detail">Tools: {data.tools.join(', ')}</div>}
 						</div>
 					</div>
 				))

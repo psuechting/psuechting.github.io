@@ -16,6 +16,8 @@ const work = defineCollection({
 		end: z.union([z.string().regex(/^\d{4}-\d{2}$/, 'Use YYYY-MM'), z.literal('present')]).optional(),
 		location: z.string(),
 		description: z.string(),
+		// Tools used in this role (shown as chips on the timeline and a line on the CV).
+		tools: z.array(z.string()).default([]),
 	}),
 });
 
