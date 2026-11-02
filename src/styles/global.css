@@ -1265,7 +1265,7 @@ a.tag:hover {
 /* Résumé: one Letter page, denser than the CV */
 .resume {
 	font-size: 9pt;
-	line-height: 1.22;
+	line-height: 1.2;
 }
 
 .resume .cv-header {
@@ -1286,7 +1286,7 @@ a.tag:hover {
 }
 
 .resume h2 {
-	font-size: 10.5pt;
+	font-size: 10pt;
 	margin-bottom: 2px;
 	padding-bottom: 1px;
 }

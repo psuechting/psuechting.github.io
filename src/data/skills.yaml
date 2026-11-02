@@ -24,6 +24,7 @@
     - LaTeX
     - Quarto
     - R Markdown
+    - Git/GitHub
 
 - id: databases-data-systems
   order: 3
@@ -37,7 +38,9 @@
     - Supabase
     - JavaScript & Python automation
     - REST API integration
-    - CRM design for member organizations (Action Network, Salsa, Hustle)
+    - Google Data Studio
+    - Microsoft Access
+    - CRM design (Action Network, Salsa, Hustle)
 
 - id: industry-policy-data
   order: 4
