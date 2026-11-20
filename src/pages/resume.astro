@@ -45,8 +45,8 @@ const otherDegrees = education.filter((e) => e !== phd);
 			<p class="cv-contact">
 				<span>{profile.location}</span>
 				<span><Email address={personalEmail.address} /></span>
-				<span>psuechting.github.io</span>
-				{linkedin && <span>{linkedin.url.replace(/^https:\/\/(www\.)?/, '')}</span>}
+				<span><a href="https://psuechting.github.io/">psuechting.github.io</a></span>
+				{linkedin && <span><a href={linkedin.url}>{linkedin.url.replace(/^https:\/\/(www\.)?/, '')}</a></span>}
 			</p>
 		</header>
 
